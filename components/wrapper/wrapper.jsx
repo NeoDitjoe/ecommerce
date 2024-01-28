@@ -1,3 +1,4 @@
+import NextNProgress from 'nextjs-progressbar';
 import { Children } from "react";
 import Header from "../header/header";
 import { Inter } from "next/font/google";
@@ -10,6 +11,7 @@ export default function Wrapper(props){
 
   return (
     <section className={inter.className}>
+      <NextNProgress/>
       <Header />
       {children}
       <footer>
