@@ -35,12 +35,12 @@ export const DummyProducts = [
     banner: ''
   },
   {
-    name: 'Steve Madden',
+    name: 'Rockstar white boots',
     slug: 'steve-madden-white-sneaker-sneaker',
     category: 'Shoes',
     image: whiteSneaker,
     price: 1689.99,
-    brand: 'Nike SB',
+    brand: 'Steve Main',
     rating: 4.8,
     reviewsCount: 14,
     description: 'steve madden rockstar shoes',
