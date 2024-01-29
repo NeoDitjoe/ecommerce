@@ -13,7 +13,7 @@ export const DummyProducts = [
     slug: 'golfwang-shirt',
     category: 'Shirts',
     image: golfwangWhiteShirt,
-    price: 350,
+    price: 356,
     brand: 'Golfwang',
     rating: 4.5,
     reviewsCount: 7,
