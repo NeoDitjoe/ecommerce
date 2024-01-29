@@ -12,7 +12,9 @@ export default function Wrapper(props) {
       <section className={inter.className}>
         <NextNProgress />
         <Header />
-        {children}
+        <div style={{marginLeft:'10px'}}>
+          {children}
+        </div>
         <footer>
           <p>copyright © 2024 - All right reserved by Store4Real</p>
         </footer>

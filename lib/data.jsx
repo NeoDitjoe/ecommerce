@@ -19,7 +19,8 @@ export const DummyProducts = [
     reviewsCount: 7,
     description: 'very cool white golfwang shirt',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 12
   },
   {
     name: 'Vintage Nike Jacket',
@@ -32,7 +33,8 @@ export const DummyProducts = [
     reviewsCount: 17,
     description: "Vintage nike jacket. 90's style",
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 2
   },
   {
     name: 'Rockstar white boots',
@@ -40,12 +42,13 @@ export const DummyProducts = [
     category: 'Shoes',
     image: whiteSneaker,
     price: 1689.99,
-    brand: 'Steve Main',
+    brand: 'Steve Madden',
     rating: 4.8,
     reviewsCount: 14,
-    description: 'steve madden rockstar shoes',
+    description: 'Steve madden rockstar shoes',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 4
   },
   {
     name: 'Mucho Jeans',
@@ -58,7 +61,8 @@ export const DummyProducts = [
     reviewsCount: 23,
     description: 'Vintage Mucho jeans. folded with priting at the bottom',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 0
   },
   {
     name: 'Goldwang Jacket',
@@ -71,7 +75,8 @@ export const DummyProducts = [
     reviewsCount: 12,
     description: 'Golfwang winter collecting green jacket',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 33
   },
   {
     name: 'belt glasses',
@@ -84,7 +89,8 @@ export const DummyProducts = [
     reviewsCount: 20,
     description: 'Very cool Rockstar belt shaddes',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 5
   },
   {
     name: 'Timberland Boots',
@@ -97,6 +103,7 @@ export const DummyProducts = [
     reviewsCount: 20,
     description: 'Timberland boots never gets old',
     isFeatured: true,
-    banner: ''
+    banner: '',
+    stock: 20
   },
 ]

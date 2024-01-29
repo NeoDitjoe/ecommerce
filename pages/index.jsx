@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   return (
-    <main>
+    <main style={{width:'99%'}}>
       <h2 className='lastestProducts'>Latest Products</h2>
 
       <Box sx={{ flexGrow: 2 }}>

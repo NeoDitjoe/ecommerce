@@ -1,5 +1,6 @@
-import ProductItem from "@/components/productItem/productItem"
+import ProductDetails from "@/components/productItem/productDetails/productDetails"
 import { DummyProducts } from "@/lib/data"
+import Link from "next/link"
 
 
 export default function Product(props) {
@@ -8,7 +9,8 @@ export default function Product(props) {
 
   return (
     <main>
-      <ProductItem product={product} />
+      <Link href={'..'} style={{margin: '10px', color: 'white'}}>View Products</Link>
+      <ProductDetails {...product}/>
     </main>
   )
 }
