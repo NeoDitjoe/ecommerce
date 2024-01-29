@@ -5,6 +5,7 @@ import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import Image from 'next/image';
 import style from './productDetails.module.css'
+import AddToCart from '@/components/cart/addToCart';
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -82,7 +83,7 @@ export default function ProductDetails(props) {
                         </div>
 
                         <div>
-                          <button className={style.button}>Add to cart</button>
+                          <AddToCart {...props}/>
                         </div>
                       </div>
                     {/* </div> */}
