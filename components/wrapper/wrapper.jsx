@@ -1,5 +1,4 @@
 import NextNProgress from 'nextjs-progressbar';
-import { Children } from "react";
 import Header from "../header/header";
 import { Inter } from "next/font/google";
 
