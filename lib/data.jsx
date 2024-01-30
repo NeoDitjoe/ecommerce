@@ -1,4 +1,4 @@
-import golfwangWhiteShirt from '../public/products/golfwangWhiteShirt.png'
+import golfwangWhiteShirt from '../public/products/golfWangWhiteShirt.png'
 import NikeJacket from '../public/products/NikeJacket.png'
 import MuchoCargoJeans from '../public/products/MuchoCargoJeans.png'
 import whiteSneaker from '../public/products/whiteSneakerA.png'
