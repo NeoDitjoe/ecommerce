@@ -141,7 +141,7 @@ export default function Header() {
               >
                 {['Cart', 'Sign In'].map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/${setting.replace(' ', '').toLocaleLowerCase()}`} textAlign="center">{setting}</Link>
+                    <Link href={`/${setting.replace(' ', '').toLocaleLowerCase()}`}>{setting}</Link>
                   </MenuItem>
                 ))}
               </Menu>
