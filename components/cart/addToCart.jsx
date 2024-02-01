@@ -1,16 +1,8 @@
-import { useEffect } from 'react'
 import style from './addToCart.module.css'
 
 export default function AddToCart(props) {
 
   const {name, image, price, slug} = props
-
-  const product = {
-    name: name,
-    image: image,
-    price: price,
-    slug: slug
-  }
 
   const additem = async function(e){
     e.preventDefault()
