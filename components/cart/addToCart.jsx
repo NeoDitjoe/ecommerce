@@ -2,17 +2,15 @@ import style from './addToCart.module.css'
 
 export default function AddToCart(props) {
 
-  const {name, image, price, slug} = props
+  const { name, image, price, slug } = props
 
   const additem = async function(e){
     e.preventDefault()
     
     try {
-
       await placeOrder(props)
     }catch(error){
       console.log('error')
-      console.log(name + 'error')
     }
   }
   return (
