@@ -9,7 +9,7 @@ export default function Home(props) {
 
   const { data: session } = useSession()
 
-  if (session && session.user) {
+  // if (session && session.user) {
     return (
       <main style={{ width: '99%' }}>
         <h2 className='lastestProducts'>Latest Products</h2>
@@ -18,7 +18,7 @@ export default function Home(props) {
         />
       </main>
     )
-  }
+  // }
 
   return (
     <GoogleButton 

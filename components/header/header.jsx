@@ -19,6 +19,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Link from "next/link";
 import style from './header.module.css'
 import { useState } from 'react';
+import { signOut, useSession } from 'next-auth/react';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -63,6 +64,9 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 export default function Header() {
+
+  const { data: session } = useSession()
+  const user = session && session.user
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -117,35 +121,38 @@ export default function Header() {
               />
             </Search>
 
-            <Box sx={{ flexGrow: 0 }} style={{marginLeft:'10px'}}>
-              <Tooltip title="Open settings">
-                {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
-                <Avatar alt="Cozy4Real" src="/static/images/avatar/2.jpg" onClick={handleOpenUserMenu}/>
-                {/* </IconButton> */}
-              </Tooltip>
-              <Menu
-                sx={{ mt: '45px' }}
-                id="menu-appbar"
-                anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-              open={Boolean(anchorElUser)}
-              onClose={handleCloseUserMenu}
-              >
-                {['Cart', 'Sign In'].map((setting) => (
-                  <MenuItem key={setting} onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/${setting.replace(' ', '').toLocaleLowerCase()}`} textAlign="center">{setting}</Link>
+            {user
+              ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px' }}>
+                <Tooltip title="Open settings">
+                  {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
+                  <Avatar alt="Cozy4Real" src="/static/images/avatar/2.jpg" onClick={handleOpenUserMenu} />
+                  {/* </IconButton> */}
+                </Tooltip>
+                <Menu
+                  sx={{ mt: '45px' }}
+                  id="menu-appbar"
+                  anchorEl={anchorElUser}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  keepMounted
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={Boolean(anchorElUser)}
+                  onClose={handleCloseUserMenu}
+                >
+                  <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
+                    <Link href={`/cart}`} textAlign="center">Cart</Link>
                   </MenuItem>
-                ))}
-              </Menu>
-            </Box>
+                  <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
+                    <p onClick={() => signOut()} textAlign="center">Sign Out</p>
+                  </MenuItem>
+                </Menu>
+              </Box>
+              : ''}
           </Toolbar>
         </AppBar>
       </Box>
