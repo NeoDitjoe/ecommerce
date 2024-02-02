@@ -10,6 +10,8 @@ export default NextAuth({
     jwt: true
   },
 
+  secret: process.env.SECRET,
+
   providers: [
     // // OAuth authentication providers...
     // AppleProvider({
