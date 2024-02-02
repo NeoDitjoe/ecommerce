@@ -1,0 +1,38 @@
+.container{
+  color: white;
+  padding: 10px;
+}
+
+.cart {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.imgAndName{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+}
+
+.img{
+  width: 50px;
+  height: 50px;
+}
+
+.qty{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 10px;
+}
+
+.qty button {
+  width: 40px;
+  border: none;
+  background-color: rgb(62, 61, 61);
+  height: 80%;
+  border-radius: 10px;
+}

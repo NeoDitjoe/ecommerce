@@ -1,5 +1,5 @@
+import CartItems from "@/components/cart/cartItems/userCart"
 import { getCartItems } from "@/lib/database/getItems"
-
 
 export default function cart(props){
   const { cartItems } = props
@@ -7,7 +7,16 @@ export default function cart(props){
   console.log(cartItems)
 
   return (
-    <p>this is the cart</p>
+    <>
+      {
+        cartItems.map((item) => (
+          <div>
+            <CartItems {...item}/>
+          </div>
+        ))
+      }
+    </>
+   
   )
 }
 
