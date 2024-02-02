@@ -6,6 +6,15 @@ import GoogleProvider from 'next-auth/providers/google'
 
 export default NextAuth({
 
+  callbacks: {
+    async signIn({ account, profile }) {
+      if (account.provider === "google") {
+        return profile.email_verified && profile.email.endsWith(".com")
+      }
+      return true // Do different verification for other providers that don't have `email_verified`
+    },
+  },
+
   session: {
     jwt: true
   },
@@ -22,7 +31,15 @@ export default NextAuth({
     // }),
     GoogleProvider({
       clientId: process.env.GOOGLE_ID,
-      clientSecret: process.env.GOOGLE_KEY
+      clientSecret: process.env.GOOGLE_KEY,
+
+      authorization: {
+        params: {
+          prompt: "consent",
+          access_type: "offline",
+          response_type: "code"
+        }
+      }
     }),
     // // Passwordless / email sign in
     // EmailProvider({
