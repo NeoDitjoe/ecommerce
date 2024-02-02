@@ -11,14 +11,16 @@ export default function AuthForm() {
 
   function signUpHandler(e){
     e.preventDefault()
-    console.log(usernameRef.current.value)
-    console.log(passwordRef.current.value)
-    console.log(emailRef.current.value)
+    const username = usernameRef.current.value
+    const email = emailRef.current.value
+    const password = passwordRef.current.value
+
+    createUser(username, email, password)
   }
 
   return (
     <Box
-      sx={{
+      sx={{ 
         background: 'white',
         display: 'flex',
         flexDirection: 'column',
@@ -27,14 +29,32 @@ export default function AuthForm() {
     >
 
       <form>
-        <input type='text' ref={usernameRef}/>
-        <input type='email' ref={emailRef} />
-        <input type='password' ref={passwordRef} />
+        <input type='text' ref={usernameRef} required/>
+        <input type='email' ref={emailRef} required />
+        <input type='password' id='email' ref={passwordRef} required/>
 
-        <button type='submit' onClick={signUpHandler}>
+        <button type='submit' onSubmit={signUpHandler}>
           submit
         </button>
       </form>
     </Box>
   );
+}
+
+async function createUser(username, email, password) {
+  const response = await fetch('/api/auth/createUser', {
+    method: 'POST',
+    body: JSON.stringify({username: username, email: email, password: password}),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
 }
