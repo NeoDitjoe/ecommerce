@@ -5,6 +5,7 @@ export default NextAuth({
 
   session: {
     jwt: true
+    
   },
 
   providers: [
