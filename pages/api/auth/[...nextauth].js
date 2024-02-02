@@ -5,6 +5,11 @@ import GoogleProvider from 'next-auth/providers/google'
 // import EmailProvider from 'next-auth/providers/email'
 
 export default NextAuth({
+
+  session: {
+    jwt: true
+  },
+
   providers: [
     // // OAuth authentication providers...
     // AppleProvider({
