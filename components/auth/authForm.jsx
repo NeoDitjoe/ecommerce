@@ -1,7 +1,7 @@
-// import * as React from 'react';
-import Box from '@mui/material/Box';
-import TextField from '@mui/material/TextField';
 import { useRef } from 'react';
+import style from './authForm.module.css'
+import GoogleButton from 'react-google-button';
+import { signIn } from 'next-auth/react';
 
 export default function AuthForm() {
 
@@ -9,7 +9,7 @@ export default function AuthForm() {
   const passwordRef = useRef()
   const emailRef = useRef()
 
-  function signUpHandler(e){
+  function signUpHandler(e) {
     e.preventDefault()
     const username = usernameRef.current.value
     const email = emailRef.current.value
@@ -19,32 +19,49 @@ export default function AuthForm() {
   }
 
   return (
-    <Box
-      sx={{ 
-        background: 'white',
-        display: 'flex',
-        flexDirection: 'column',
-        '& .MuiTextField-root': { width: '25ch' },
-      }}
-    >
+    <div className={style.section}>
+      <div className={style.formDiv}>
+        <form className={style.form}>
+          <div>
+            <label htmlFor="username">Username: </label>
+            <input type='text' ref={usernameRef} placeholder='username' required />
+          </div>
 
-      <form>
-        <input type='text' ref={usernameRef} required/>
-        <input type='email' ref={emailRef} required />
-        <input type='password' id='email' ref={passwordRef} required/>
+          <div>
+            <label htmlFor="email">Email:</label>
+            <input type='email' ref={emailRef} placeholder='email' required />
+          </div>
 
-        <button type='submit' onSubmit={signUpHandler}>
-          submit
-        </button>
-      </form>
-    </Box>
+          <div>
+            <label htmlFor="password">Password:</label>
+            <input type='password' id='email' ref={passwordRef} placeholder='password' required />
+          </div>
+
+          <div>
+            <button type='submit' onSubmit={signUpHandler}>
+              submit
+            </button>
+          </div>
+
+          <hr />
+
+          <GoogleButton 
+            onClick={() => signIn('google')}
+          />
+        </form>
+      </div>
+
+      <div className={style.background}>
+
+      </div>
+    </div>
   );
 }
 
 async function createUser(username, email, password) {
   const response = await fetch('/api/auth/createUser', {
     method: 'POST',
-    body: JSON.stringify({username: username, email: email, password: password}),
+    body: JSON.stringify({ username: username, email: email, password: password }),
     headers: {
       'Content-Type': 'application/json',
     },

@@ -16,7 +16,7 @@ export default function Wrapper(props) {
           {children}
         </div>
         <footer>
-          <p>copyright © 2024 - All right reserved by Store4Real</p>
+          <p className='footer'>copyright © 2024 - All right reserved by Store4Real</p>
         </footer>
       </section>
   )

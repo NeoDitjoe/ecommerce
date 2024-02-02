@@ -125,7 +125,7 @@ export default function Header() {
               ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px' }}>
                 <Tooltip title="Open settings">
                   {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
-                  <Avatar alt="Cozy4Real" src="/static/images/avatar/2.jpg" onClick={handleOpenUserMenu} />
+                  <Avatar alt={user.name} src={user.image} onClick={handleOpenUserMenu} />
                   {/* </IconButton> */}
                 </Tooltip>
                 <Menu
