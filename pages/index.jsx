@@ -1,6 +1,7 @@
 import { Items } from '@/components/productItem/productItem';
 import getItem from '@/lib/database/getItems';
 import { signIn, signOut, useSession } from 'next-auth/react';
+import GoogleButton from 'react-google-button';
 
 export default function Home(props) {
 
@@ -20,9 +21,9 @@ export default function Home(props) {
   }
 
   return (
-    <button onClick={() => signIn()}>
-      signIn
-    </button>
+    <GoogleButton 
+      onClick={() => signIn('google')}
+    />
   );
 }
 
