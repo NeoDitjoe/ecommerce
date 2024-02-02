@@ -1,14 +1,17 @@
+import { useSession } from 'next-auth/react'
 import style from './addToCart.module.css'
 
 export default function AddToCart(props) {
 
   const { name, image, price, slug } = props
+  const { data: session } = useSession()
+  const user = session && session.user
 
   const additem = async function(e){
     e.preventDefault()
     
     try {
-      await placeOrder(props)
+      await placeOrder(props, user.email)
     }catch(error){
       console.log('error')
     }
@@ -20,10 +23,10 @@ export default function AddToCart(props) {
   )
 }
 
-async function placeOrder(products) {
+async function placeOrder(products, username) {
   const response = await fetch('/api/addtoCart', {
     method: 'POST',
-    body: JSON.stringify({products}),
+    body: JSON.stringify({products, username: username}),
     headers: {
       'Content-Type': 'application/json',
     },
