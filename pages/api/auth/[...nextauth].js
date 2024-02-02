@@ -10,8 +10,6 @@ export default NextAuth({
     jwt: true
   },
 
-  secret: process.env.SECRET,
-
   providers: [
     // // OAuth authentication providers...
     // AppleProvider({
@@ -31,5 +29,7 @@ export default NextAuth({
     //   server: process.env.MAIL_SERVER,
     //   from: 'NextAuth.js <no-reply@example.com>'
     // }),
-  ]
+  ],
+
+  secret: process.env.SECRET,
 })
