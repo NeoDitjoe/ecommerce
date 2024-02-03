@@ -1,4 +1,4 @@
-.form{
+.formB{
   color: white;
   display: flex;
   flex-direction: column;
@@ -9,11 +9,30 @@
   padding-top: 100px;
 }
 
-.form input {
+.form {
+  color: black;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  /* desktop */
+  padding: 20px;
+  padding-top: 100px;
+}
+
+.formB input {
   height: 7vh;
   font-size: larger;
   border-radius: 10px;
   border: none;
+  text-align: center;
+}
+.form input {
+  background-color: rgb(216, 214, 214);
+  height: 7vh;
+  font-size: larger;
+  border-radius: 10px;
+  border: 1px solid;
   text-align: center;
 }
 

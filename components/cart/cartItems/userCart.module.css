@@ -1,5 +1,11 @@
-.container{
+.containerB{
   color: white;
+  padding: 10px;
+  min-height: 79.45vh;
+}
+
+.container{
+  color: rgb(0, 0, 0);
   padding: 10px;
   min-height: 79.45vh;
 }
