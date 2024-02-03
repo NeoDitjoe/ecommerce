@@ -2,15 +2,17 @@ import Image from "next/image"
 import style from './userCart.module.css'
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
+import StateContext from "@/lib/context"
 
 export default function CartItems(props) {
 
+  const { theme } = StateContext()
   const { products } = props
   const { data: session } = useSession()
   const userEmail = session && session.user.email[0]
 
   return (
-    <div className={style.container}>
+    <div className={theme ? style.containerB : style.container}>
       {
         products && products.map((product) => (
           <div className={style.cart}>
@@ -31,7 +33,7 @@ export default function CartItems(props) {
               </div>
             </div>
 
-            <div className={style.qty}>
+            <div className={theme ? style.qtyB : style.qty}>
               <button
                 onClick={async() => await addItem({qty: Number(product.qty) - 1, name: product.name, user: userEmail })}
               >-</button>

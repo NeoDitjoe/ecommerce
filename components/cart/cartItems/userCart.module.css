@@ -43,12 +43,33 @@
 .qty button {
   width: 40px;
   border: none;
+  background-color: rgb(146, 146, 146);
+  height: 80%;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.qtyB{
+  display: flex;
+  flex-direction: row;
+  justify-content: center ;
+  align-items: center;
+  gap: 10px;
+}
+
+.qtyB button {
+  width: 40px;
+  border: none;
   background-color: rgb(62, 61, 61);
   height: 80%;
   border-radius: 10px;
   cursor: pointer;
 }
 
+
+.qtyB button:hover{
+  background-color: rgba(155, 153, 153, 0.723)
+}
+
 .qty button:hover{
-  background-color: rgba(102, 101, 101, 0.723)
+  background-color: rgba(187, 185, 185, 0.723)
 }
