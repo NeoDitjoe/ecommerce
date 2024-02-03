@@ -1,4 +1,3 @@
-import NextNProgress from 'nextjs-progressbar';
 import Header from "../header/header";
 import { Inter } from "next/font/google";
 
@@ -10,7 +9,6 @@ export default function Wrapper(props) {
 
   return (
       <section className={inter.className}>
-        <NextNProgress />
         <Header />
         <div style={{marginLeft:'10px'}}>
           {children}
