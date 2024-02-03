@@ -4,11 +4,12 @@ import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import StateContext from '@/lib/context';
 import LoadingBackdrop from '../backdrop/loading';
+import { Alert } from '@mui/material';
 
 export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
-  const [ authRespons, setAuthResponse ] = useState(null)
+  const [ errorRes, setErrorRes ] = useState(null)
   const { setOpen } = StateContext()
 
   const router = useRouter()
@@ -24,14 +25,14 @@ export default function AuthForm() {
     const username = usernameRef.current.value
     const email = emailRef.current.value
     const password = passwordRef.current.value
-    setAuthResponse('')
+    setErrorRes('')
 
     try {
       setOpen(true)
       await createUser(username, email, password)
       setOpen(false)
     } catch (error) {
-      setAuthResponse(error.message)
+      setErrorRes(error.message)
       setOpen(false)
     }
   }
@@ -40,7 +41,7 @@ export default function AuthForm() {
     e.preventDefault()
     const email = emailRef.current.value
     const password = passwordRef.current.value
-    setAuthResponse('')
+    setErrorRes('')
 
     try{
       setOpen(true)
@@ -51,7 +52,6 @@ export default function AuthForm() {
       });
       
       if(response.ok){
-        setAuthResponse('redirecting to home page')
         router.push('/')
         setOpen(false)
         emailRef.current.value = ''
@@ -63,7 +63,7 @@ export default function AuthForm() {
       }
     }catch(error){
       setOpen(false)
-      setAuthResponse(error)
+      setErrorRes(error)
     }
   }
 
@@ -87,7 +87,7 @@ export default function AuthForm() {
             <input type='password' id='email' ref={passwordRef} placeholder='password' required />
           </div>
 
-          <p style={{color: 'red'}}>{authRespons}</p>
+          {errorRes && <Alert severity="error">{errorRes}</Alert>}
 
           <div>
             <button type='submit'>
@@ -101,10 +101,7 @@ export default function AuthForm() {
           >{login ? 'Create an account' : 'Have an account ?'}</p>
 
           <hr />
-
-          {/* <GoogleButton
-            onClick={() => signIn('google')}
-          /> */}
+          
         </form>
       </div>
 
