@@ -2,10 +2,10 @@ import addToCart from "@/lib/database/addToCart"
 
 export default async function handler(req, res) {
   if(req.method === 'POST'){
-    const { products, username} = req.body
+    const { products, userEmail} = req.body
 
     try {
-      await addToCart(products, username)
+      await addToCart(products, userEmail)
 
     } catch(error) {
       res.status(417).json({message: error})

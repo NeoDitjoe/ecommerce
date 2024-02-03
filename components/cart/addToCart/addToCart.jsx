@@ -24,7 +24,7 @@ export default function AddToCart(props) {
     e.preventDefault()
 
     try {
-      await placeOrder(props, user.email)
+      await placeOrder(props, user.email[0])
     } catch (error) {
       console.log('error')
     }
@@ -45,10 +45,10 @@ export default function AddToCart(props) {
   )
 }
 
-async function placeOrder(products, username) {
+async function placeOrder(products, userEmail) {
   const response = await fetch('/api/addtoCart', {
     method: 'POST',
-    body: JSON.stringify({ products, username: username }),
+    body: JSON.stringify({ products, userEmail: userEmail }),
     headers: {
       'Content-Type': 'application/json',
     },
