@@ -5,8 +5,7 @@ import Toolbar from '@mui/material/Toolbar';
 import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
 import InputBase from '@mui/material/InputBase';
-// import MenuIcon from '@mui/icons-material/Menu';
-// import SearchIcon from '@mui/icons-material/Search';
+import SearchIcon from '@mui/icons-material/Search';
 
 import Menu from '@mui/material/Menu';
 // import MenuIcon from '@mui/icons-material/Menu';
@@ -116,7 +115,7 @@ export default function Header() {
 
             <Search>
               <SearchIconWrapper>
-                {/* <SearchIcon /> */}
+                <SearchIcon />
               </SearchIconWrapper>
               <StyledInputBase
                 placeholder="Search…"
@@ -127,9 +126,9 @@ export default function Header() {
             {user
               ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px', cursor: 'pointer' }}>
                 <Tooltip title="Open settings">
-                  {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
-                  <Avatar alt={user.name} src={user.image} onClick={handleOpenUserMenu} />
-                  {/* </IconButton> */}
+                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                  <Avatar alt={user.name} src={user.image} />
+                  </IconButton>
                 </Tooltip>
                 <Menu
                   sx={{ mt: '45px' }}
@@ -148,7 +147,7 @@ export default function Header() {
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/cart/${user[0]}`} textAlign="center">Cart</Link>
+                    <Link href={`/cart`} textAlign="center">Cart</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
                     <p onClick={() => signOut()} textAlign="center">Sign Out</p>

@@ -12,7 +12,7 @@ export default function CartItems(props) {
   return (
     <div className={style.container}>
       {
-        products.map((product) => (
+        products && products.map((product) => (
           <div className={style.cart}>
             <div className={style.imgAndName}>
 
