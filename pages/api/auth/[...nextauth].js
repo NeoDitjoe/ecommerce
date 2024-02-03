@@ -1,4 +1,4 @@
-import { verifyPasword } from '@/lib/database/auth/encrypr';
+import { verifyHashed } from '@/lib/database/auth/encrypt';
 import { client } from '@/lib/database/client';
 import NextAuth from 'next-auth'
 import CredentialsProvider from "next-auth/providers/credentials";
@@ -27,7 +27,7 @@ export default NextAuth({
           throw new Error('User not found!')
         }
 
-        const isValid = await verifyPasword(credentials.password, user.password)
+        const isValid = await verifyHashed(credentials.password, user.password)
 
         if (!isValid) {
           throw new Error('Incorrect Password')
