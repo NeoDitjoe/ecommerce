@@ -1,9 +1,13 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import style from './authForm.module.css'
 import GoogleButton from 'react-google-button';
-import { signIn } from 'next-auth/react';
+import { signIn, useSession } from 'next-auth/react';
 
 export default function AuthForm() {
+
+  const [login, setLogin] = useState(false)
+  const { data: session } = useSession()
+  const user = session && session.user
 
   const usernameRef = useRef()
   const passwordRef = useRef()
@@ -16,9 +20,26 @@ export default function AuthForm() {
     const password = passwordRef.current.value
 
     console.log(username, email, password)
-    try{
+    try {
       await createUser(username, email, password)
       console.log('success')
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
+  async function SignInHandler(e) {
+    e.preventDefault()
+    const email = emailRef.current.value
+    const password = passwordRef.current.value
+
+    try{
+      console.log('running')
+      await signIn('credentials', {
+        redirect: false,
+        email: email,
+        password: password,
+      });
     }catch(error){
       console.log(error)
     }
@@ -27,11 +48,11 @@ export default function AuthForm() {
   return (
     <div className={style.section}>
       <div className={style.formDiv}>
-        <form className={style.form} onSubmit={signUpHandler}>
-          <div>
+        <form className={style.form} onSubmit={login ? SignInHandler : signUpHandler}>
+          {login ? '' : <div>
             <label htmlFor="username">Username: </label>
             <input type='text' ref={usernameRef} placeholder='username' required />
-          </div>
+          </div>}
 
           <div>
             <label htmlFor="email">Email:</label>
@@ -44,14 +65,16 @@ export default function AuthForm() {
           </div>
 
           <div>
-            <button type='submit' >
+            <button type='submit'>
               submit
             </button>
           </div>
 
+          <p onClick={() => setLogin(!login)}>{login ? 'Create an account' : 'Have an account?'}</p>
+
           <hr />
 
-          <GoogleButton 
+          <GoogleButton
             onClick={() => signIn('google')}
           />
         </form>
