@@ -6,6 +6,7 @@ import Button from '@mui/material/Button';
 import { useState } from 'react';
 import GoogleButton from 'react-google-button';
 import AuthForm from '@/components/auth/authForm';
+import Link from 'next/link';
 
 export default function AddToCart(props) {
 
@@ -38,7 +39,10 @@ export default function AddToCart(props) {
         open={open}
         onClick={handleClose}
       >
-        <AuthForm />
+        <div className={style.backdrop}>
+          <h3>Login to use cart</h3>
+          <Link href={'/auth'}>Login here</Link>
+        </div>
       </Backdrop>
     </div>
   )

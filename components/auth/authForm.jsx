@@ -8,6 +8,7 @@ import LoadingBackdrop from '../backdrop/loading';
 export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
+  const [ authRespons, setAuthResponse ] = useState(null)
   const { setOpen } = StateContext()
 
   const router = useRouter()
@@ -40,15 +41,23 @@ export default function AuthForm() {
 
     try{
       setOpen(true)
-      await signIn('credentials', {
+      const response = await signIn('credentials', {
         redirect: false,
         email: email,
         password: password,
       });
-      setOpen(false)
+      
+      if(response.ok){
+        router.push('/')
+        setOpen(false)
+      }
+
+      if(!response.ok){
+        setOpen(false)
+      }
     }catch(error){
       setOpen(false)
-      console.log(error)
+      setAuthResponse(error)
     }
   }
 
@@ -71,6 +80,8 @@ export default function AuthForm() {
             <label htmlFor="password">Password:</label>
             <input type='password' id='email' ref={passwordRef} placeholder='password' required />
           </div>
+
+          <p>{authRespons}</p>
 
           <div>
             <button type='submit'>
