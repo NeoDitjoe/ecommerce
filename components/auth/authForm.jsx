@@ -3,10 +3,13 @@ import style from './authForm.module.css'
 import GoogleButton from 'react-google-button';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import StateContext from '@/lib/context';
+import LoadingBackdrop from '../backdrop/loading';
 
 export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
+  const { setOpen } = StateContext()
 
   const router = useRouter()
 
@@ -37,13 +40,15 @@ export default function AuthForm() {
     const password = passwordRef.current.value
 
     try{
-      console.log('running')
+      setOpen(true)
       await signIn('credentials', {
         redirect: false,
         email: email,
         password: password,
       });
+      setOpen(false)
     }catch(error){
+      setOpen(false)
       console.log(error)
     }
   }
@@ -90,6 +95,8 @@ export default function AuthForm() {
       {activeBackdrop ? <div className={style.background}>
 
       </div> : ''}
+
+      <LoadingBackdrop />
     </div>
   );
 }

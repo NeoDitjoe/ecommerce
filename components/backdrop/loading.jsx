@@ -2,15 +2,14 @@ import Backdrop from '@mui/material/Backdrop';
 import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
+import StateContext from '@/lib/context';
 
 export default function LoadingBackdrop({children}){
 
-  const [open, setOpen] = useState(false);
+  const { setOpen, open } = StateContext()
+
   const handleClose = () => {
     setOpen(false);
-  };
-  const handleOpen = () => {
-    setOpen(true);
   };
 
   return (
