@@ -145,6 +145,9 @@ export default function Header() {
                     <Link href={`/cart`} textAlign="center">Cart</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
+                    <Link href={`/`} textAlign="center">Home</Link>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
                     <p onClick={() => signOut()} textAlign="center">Sign Out</p>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
