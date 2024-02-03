@@ -50,6 +50,8 @@ export default function AuthForm() {
       if(response.ok){
         router.push('/')
         setOpen(false)
+        emailRef.current.value = ''
+        passwordRef.current.value = ''
       }
 
       if(!response.ok){
