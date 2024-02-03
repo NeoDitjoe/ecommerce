@@ -18,6 +18,7 @@ import style from './header.module.css'
 import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
+import StateContext from '@/lib/context';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -69,6 +70,7 @@ export default function Header() {
   const router = useRouter()
 
   const [anchorElUser, setAnchorElUser] = useState(null);
+  const { theme , setTheme} = StateContext()
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -144,6 +146,9 @@ export default function Header() {
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
                     <p onClick={() => signOut()} textAlign="center">Sign Out</p>
+                  </MenuItem>
+                  <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
+                    <p onClick={() => setTheme(!theme)} textAlign="center">{theme ? 'Light theme': 'Dark theme'}</p>
                   </MenuItem>
                 </Menu>
               </Box>

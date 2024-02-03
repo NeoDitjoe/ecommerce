@@ -6,12 +6,15 @@ import { experimentalStyled as styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+import StateContext from "@/lib/context";
 
 export default function Structure(props) {
 
+  const { theme } = StateContext()
+
   const { image, name, slug, brand, price } = props.product
   return (
-    <div className={style.main}>
+    <div className={theme ? style.mainB : style.main}>
       <figure>
         <Link href={`/product/${slug}`}>
           <Image
@@ -38,7 +41,7 @@ export default function Structure(props) {
 }
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: 1 === 2 ? '#1A2027': 'rgb(220, 218, 218)' ,
+  // backgroundColor: theme ? '#1A2027': 'rgb(220, 218, 218)' ,
   ...theme.typography.body2,
   padding: theme.spacing(-5),
   color: theme.palette.text.secondary,
@@ -46,12 +49,14 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export function Items({products}) {
 
+  const { theme } = StateContext()
+
   return (
     <Box sx={{ flexGrow: 2 }}>
       <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 12, sm: 12, md: 12 }}>
         {products.map((product, index) => (
           <Grid xs={6} sm={3} md={2} key={index}>
-            <Item>
+            <Item style={{ background: theme? '#1A2027' : 'rgb(220, 218, 218)'}}>
               <Structure
                 product={product}
               />

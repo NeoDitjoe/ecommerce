@@ -1,14 +1,17 @@
+import StateContext from "@/lib/context";
 import Header from "../header/header";
 import { Inter } from "next/font/google";
+import style from './wrapper.module.css'
 
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Wrapper(props) {
 
   const { children } = props
+  const { theme } = StateContext()
 
   return (
-      <section className={inter.className}>
+      <section className={`${inter.className} ${theme ? style.black : style.white }`}>
         <Header />
         <div style={{marginLeft:'10px'}}>
           {children}
