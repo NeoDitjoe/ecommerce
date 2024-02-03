@@ -32,7 +32,9 @@ export default function CartItems(props) {
             </div>
 
             <div className={style.qty}>
-              <button>-</button>
+              <button
+                onClick={async() => await addItem({qty: Number(product.qty) - 1, name: product.name, user: userEmail })}
+              >-</button>
               <div>{product.qty}</div>
               <button
                 onClick={async() => await addItem({qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
@@ -40,7 +42,7 @@ export default function CartItems(props) {
             </div>
 
             <div>
-              R{product.price.toFixed(2)}
+              R{product.price.toFixed(2) * product.qty}
             </div>
           </div>
         ))
