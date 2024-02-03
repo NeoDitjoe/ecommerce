@@ -48,9 +48,9 @@ export function Items({products}) {
 
   return (
     <Box sx={{ flexGrow: 2 }}>
-      <Grid container spacing={{ xs: 2, md: 3 }} columns={{ xs: 2, sm: 4, md: 8 }}>
+      <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 12, sm: 12, md: 12 }}>
         {products.map((product, index) => (
-          <Grid xs={8} sm={2} md={2} key={index}>
+          <Grid xs={6} sm={3} md={2} key={index}>
             <Item>
               <Structure
                 product={product}
