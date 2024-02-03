@@ -26,7 +26,7 @@ export default function Structure(props) {
 
       <div>
         <Link href={`/product/${slug}`}>
-          {name}
+          <h3>{name}</h3>
         </Link>
         <p>{brand}</p>
         <div>
@@ -38,7 +38,7 @@ export default function Structure(props) {
 }
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: /* theme.palette.mode ===  *//* 'dark' ? */ '#1A2027' /* : */ /* '#fff' */,
+  backgroundColor: 1 === 2 ? '#1A2027': 'rgb(220, 218, 218)' ,
   ...theme.typography.body2,
   padding: theme.spacing(-5),
   color: theme.palette.text.secondary,

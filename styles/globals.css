@@ -1,9 +1,14 @@
 body{
-  background-color: black;
+  background-color: rgb(255, 255, 255);
+}
+
+.lastestProductsB{
+  color: white;
+  margin: 10px;
 }
 
 .lastestProducts{
-  color: white;
+  color: black;
   margin: 10px;
 }
 
@@ -12,8 +17,51 @@ body{
   margin: 0;
 }
 
-.footer{
-  background-color: white;
+.footerB{
+  background-color: rgb(255, 255, 255);
   text-align: center;
   padding: 20px;
+}
+
+.footer{
+  background-color: rgb(52, 52, 63);
+  text-align: center;
+  padding: 20px;
+  color: white;
+}
+
+@keyframes banner {
+  0%{
+    background: url('https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  25%{
+    background: url('https://images.pexels.com/photos/3965545/pexels-photo-3965545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  50%{
+    background: url('https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position-y: -120px;
+  }
+  75%{
+    background: url('https://images.pexels.com/photos/9499299/pexels-photo-9499299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position-y: -110px;
+  }
+  100%{
+    background: url('https://images.pexels.com/photos/8516198/pexels-photo-8516198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover; 
+    background-repeat: no-repeat;
+  }
+}
+
+.mainIndexBackground {
+  height: 90vh;
+  width: 100%;
+
+  animation-name: banner;
+  animation-duration: 60s;
+  animation-iteration-count: infinite;
+  animation-delay: 0s
 }

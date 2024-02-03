@@ -3,12 +3,21 @@
   height: 45vh;
 }
 
-.main{
+.mainB{
   color: white;
 }
 
-.main a {
+.main{
+  color: black;
+}
+
+.mainB a {
   color: white;
+  text-decoration: none;
+}
+
+.main a {
+  color: black;
   text-decoration: none;
 }
 

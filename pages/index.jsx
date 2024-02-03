@@ -8,6 +8,7 @@ export default function Home(props) {
 
   return (
     <main style={{ width: '99%' }}>
+      <div className='mainIndexBackground'></div>
       <h2 className='lastestProducts'>Latest Products</h2>
       <Items
         products={DummyProducts}
