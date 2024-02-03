@@ -9,7 +9,7 @@ import { Alert } from '@mui/material';
 export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
-  const [ errorRes, setErrorRes ] = useState(null)
+  const [errorRes, setErrorRes] = useState(null)
   const { setOpen } = StateContext()
 
   const router = useRouter()
@@ -43,25 +43,25 @@ export default function AuthForm() {
     const password = passwordRef.current.value
     setErrorRes('')
 
-    try{
+    try {
       setOpen(true)
       const response = await signIn('credentials', {
         redirect: false,
         email: email,
         password: password,
       });
-      
-      if(response.ok){
+
+      if (response.ok) {
         router.push('/')
         setOpen(false)
         emailRef.current.value = ''
         passwordRef.current.value = ''
       }
 
-      if(!response.ok){
+      if (!response.ok) {
         setOpen(false)
       }
-    }catch(error){
+    } catch (error) {
       setOpen(false)
       setErrorRes(error)
     }
@@ -71,7 +71,7 @@ export default function AuthForm() {
     <div className={style.section}>
       <div className={style.formDiv}>
         <form className={style.form} onSubmit={login ? SignInHandler : signUpHandler}>
-        <h2>{login ? 'Sign In' : 'Sign Up'}</h2>
+          <h2>{login ? 'Sign In' : 'Sign Up'}</h2>
           {login ? '' : <div>
             <label htmlFor="username">Username: </label>
             <input type='text' ref={usernameRef} placeholder='username' required />
@@ -89,19 +89,21 @@ export default function AuthForm() {
 
           {errorRes && <Alert severity="error">{errorRes}</Alert>}
 
-          <div>
-            <button type='submit'>
-              submit
-            </button>
-          </div>
+          <section className={style.submitAndText}>
+            <div>
+              <button type='submit'>
+                submit
+              </button>
+            </div>
 
-          <p 
-            onClick={() => setLogin(!login)} 
-            className={style.account}
-          >{login ? 'Create an account' : 'Have an account ?'}</p>
+            <div
+              onClick={() => setLogin(!login)}
+              className={style.account}
+            >{login ? 'Create an account' : 'Have an account ?'}</div>
+          </section>
 
           <hr />
-          
+
         </form>
       </div>
 
