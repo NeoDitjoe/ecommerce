@@ -29,7 +29,7 @@ export default function CartItems(props) {
 
             <div className={style.qty}>
               <button>-</button>
-              <div>{0}</div>
+              <div>{product.qty}</div>
               <button>+</button>
             </div>
 
