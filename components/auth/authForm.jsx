@@ -9,19 +9,25 @@ export default function AuthForm() {
   const passwordRef = useRef()
   const emailRef = useRef()
 
-  function signUpHandler(e) {
+  async function signUpHandler(e) {
     e.preventDefault()
     const username = usernameRef.current.value
     const email = emailRef.current.value
     const password = passwordRef.current.value
 
-    createUser(username, email, password)
+    console.log(username, email, password)
+    try{
+      await createUser(username, email, password)
+      console.log('success')
+    }catch(error){
+      console.log(error)
+    }
   }
 
   return (
     <div className={style.section}>
       <div className={style.formDiv}>
-        <form className={style.form}>
+        <form className={style.form} onSubmit={signUpHandler}>
           <div>
             <label htmlFor="username">Username: </label>
             <input type='text' ref={usernameRef} placeholder='username' required />
@@ -38,7 +44,7 @@ export default function AuthForm() {
           </div>
 
           <div>
-            <button type='submit' onSubmit={signUpHandler}>
+            <button type='submit' >
               submit
             </button>
           </div>
