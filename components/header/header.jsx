@@ -20,6 +20,7 @@ import Link from "next/link";
 import style from './header.module.css'
 import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -67,6 +68,8 @@ export default function Header() {
 
   const { data: session } = useSession()
   const user = session && session.user.email
+
+  const router = useRouter()
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -122,7 +125,7 @@ export default function Header() {
             </Search>
 
             {user
-              ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px' }}>
+              ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px', cursor: 'pointer' }}>
                 <Tooltip title="Open settings">
                   {/* <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}> */}
                   <Avatar alt={user.name} src={user.image} onClick={handleOpenUserMenu} />
@@ -152,7 +155,12 @@ export default function Header() {
                   </MenuItem>
                 </Menu>
               </Box>
-              : ''}
+              : <p 
+                  className={style.signIn}
+                  onClick={() => {
+                    router.push('/auth')
+                  }}
+                >Sign In</p>}
           </Toolbar>
         </AppBar>
       </Box>
