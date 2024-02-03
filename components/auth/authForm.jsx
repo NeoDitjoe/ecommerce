@@ -1,6 +1,5 @@
 import { useRef, useState } from 'react';
 import style from './authForm.module.css'
-import GoogleButton from 'react-google-button';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import StateContext from '@/lib/context';
