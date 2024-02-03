@@ -24,13 +24,15 @@ export default function AuthForm() {
     const username = usernameRef.current.value
     const email = emailRef.current.value
     const password = passwordRef.current.value
+    setAuthResponse('')
 
-    console.log(username, email, password)
     try {
+      setOpen(true)
       await createUser(username, email, password)
-      console.log('success')
+      setOpen(false)
     } catch (error) {
-      console.log(error)
+      setAuthResponse(error.message)
+      setOpen(false)
     }
   }
 
@@ -38,6 +40,7 @@ export default function AuthForm() {
     e.preventDefault()
     const email = emailRef.current.value
     const password = passwordRef.current.value
+    setAuthResponse('')
 
     try{
       setOpen(true)
@@ -48,6 +51,7 @@ export default function AuthForm() {
       });
       
       if(response.ok){
+        setAuthResponse('redirecting to home page')
         router.push('/')
         setOpen(false)
         emailRef.current.value = ''
@@ -83,7 +87,7 @@ export default function AuthForm() {
             <input type='password' id='email' ref={passwordRef} placeholder='password' required />
           </div>
 
-          <p>{authRespons}</p>
+          <p style={{color: 'red'}}>{authRespons}</p>
 
           <div>
             <button type='submit'>
