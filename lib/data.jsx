@@ -20,7 +20,8 @@ export const DummyProducts = [
     description: 'very cool white golfwang shirt',
     isFeatured: true,
     banner: '',
-    stock: 12
+    stock: 12,
+    qty:1
   },
   {
     name: 'Vintage Nike Jacket',
@@ -34,7 +35,8 @@ export const DummyProducts = [
     description: "Vintage nike jacket. 90's style",
     isFeatured: true,
     banner: '',
-    stock: 2
+    stock: 2,
+    qty:1
   },
   {
     name: 'Rockstar white boots',
@@ -48,7 +50,8 @@ export const DummyProducts = [
     description: 'Steve madden rockstar shoes',
     isFeatured: true,
     banner: '',
-    stock: 4
+    stock: 4,
+    qty:1
   },
   {
     name: 'Mucho Jeans',
@@ -62,7 +65,8 @@ export const DummyProducts = [
     description: 'Vintage Mucho jeans. folded with priting at the bottom',
     isFeatured: true,
     banner: '',
-    stock: 0
+    stock: 0,
+    qty:1
   },
   {
     name: 'Goldwang Jacket',
@@ -76,7 +80,8 @@ export const DummyProducts = [
     description: 'Golfwang winter collecting green jacket',
     isFeatured: true,
     banner: '',
-    stock: 33
+    stock: 33,
+    qty:1
   },
   {
     name: 'belt glasses',
@@ -90,7 +95,8 @@ export const DummyProducts = [
     description: 'Very cool Rockstar belt shaddes',
     isFeatured: true,
     banner: '',
-    stock: 5
+    stock: 5,
+    qty:1
   },
   {
     name: 'Timberland Boots',
@@ -104,6 +110,7 @@ export const DummyProducts = [
     description: 'Timberland boots never gets old',
     isFeatured: true,
     banner: '',
-    stock: 20
+    stock: 20,
+    qty:1
   },
 ]
