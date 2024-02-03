@@ -8,13 +8,11 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
 import Menu from '@mui/material/Menu';
-// import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-// import AdbIcon from '@mui/icons-material/Adb';
 import Link from "next/link";
 import style from './header.module.css'
 import { useState } from 'react';
@@ -70,18 +68,10 @@ export default function Header() {
 
   const router = useRouter()
 
-  const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
 
-  const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -146,6 +136,9 @@ export default function Header() {
                   open={Boolean(anchorElUser)}
                   onClose={handleCloseUserMenu}
                 >
+                  <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
+                    <Link href={`/profile`} textAlign="center">{user[1]}</Link>
+                  </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
                     <Link href={`/cart`} textAlign="center">Cart</Link>
                   </MenuItem>
