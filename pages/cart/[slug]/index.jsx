@@ -7,24 +7,23 @@ export default function cart(props){
   return (
     <>
       {
-        // cartItems.map((item) => (
           <div>
-            <CartItems products={cartItems} /* {...item} *//>
+            <CartItems products={cartItems}/>
           </div>
-        // ))
       }
     </>
    
   )
 }
 
-export async function getServerSideProps() {
+export async function getServerSideProps({params}) {
 
-  const cartItems = await getCartItems()
-
+  const { slug } = params
+  const cartItems = await getCartItems(slug)
+  
   return{
     props:{
-      cartItems
+      cartItems,
     }
   }
 }

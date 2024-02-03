@@ -66,7 +66,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export default function Header() {
 
   const { data: session } = useSession()
-  const user = session && session.user
+  const user = session && session.user.email
 
   const [anchorElNav, setAnchorElNav] = useState(null);
   const [anchorElUser, setAnchorElUser] = useState(null);
@@ -145,7 +145,7 @@ export default function Header() {
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/cart}`} textAlign="center">Cart</Link>
+                    <Link href={`/cart/${user[0]}`} textAlign="center">Cart</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
                     <p onClick={() => signOut()} textAlign="center">Sign Out</p>
