@@ -52,6 +52,7 @@ export default function AuthForm() {
     <div className={style.section}>
       <div className={style.formDiv}>
         <form className={style.form} onSubmit={login ? SignInHandler : signUpHandler}>
+        <h2>{login ? 'Sign In' : 'Sign Up'}</h2>
           {login ? '' : <div>
             <label htmlFor="username">Username: </label>
             <input type='text' ref={usernameRef} placeholder='username' required />
@@ -73,7 +74,10 @@ export default function AuthForm() {
             </button>
           </div>
 
-          <p onClick={() => setLogin(!login)}>{login ? 'Create an account' : 'Have an account?'}</p>
+          <p 
+            onClick={() => setLogin(!login)} 
+            className={style.account}
+          >{login ? 'Create an account' : 'Have an account ?'}</p>
 
           <hr />
 
