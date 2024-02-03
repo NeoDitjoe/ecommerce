@@ -5,6 +5,7 @@ import CircularProgress from '@mui/material/CircularProgress';
 import Button from '@mui/material/Button';
 import { useState } from 'react';
 import GoogleButton from 'react-google-button';
+import AuthForm from '@/components/auth/authForm';
 
 export default function AddToCart(props) {
 
@@ -37,9 +38,7 @@ export default function AddToCart(props) {
         open={open}
         onClick={handleClose}
       >
-        <GoogleButton 
-          onClick={() => signIn('google')}
-        />
+        <AuthForm />
       </Backdrop>
     </div>
   )

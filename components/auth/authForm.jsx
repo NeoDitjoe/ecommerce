@@ -1,13 +1,16 @@
 import { useRef, useState } from 'react';
 import style from './authForm.module.css'
 import GoogleButton from 'react-google-button';
-import { signIn, useSession } from 'next-auth/react';
+import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/router';
 
 export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
-  const { data: session } = useSession()
-  const user = session && session.user
+
+  const router = useRouter()
+
+  const activeBackdrop = router.pathname === '/auth'
 
   const usernameRef = useRef()
   const passwordRef = useRef()
@@ -80,9 +83,9 @@ export default function AuthForm() {
         </form>
       </div>
 
-      <div className={style.background}>
+      {activeBackdrop ? <div className={style.background}>
 
-      </div>
+      </div> : ''}
     </div>
   );
 }
