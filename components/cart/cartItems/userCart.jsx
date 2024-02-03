@@ -1,9 +1,13 @@
 import Image from "next/image"
 import style from './userCart.module.css'
+import { useRouter } from "next/router"
+import { useSession } from "next-auth/react"
 
 export default function CartItems(props) {
 
-  const { /* image, name, price,  */products } = props
+  const { products } = props
+  const { data: session } = useSession()
+  const userEmail = session && session.user.email[0]
 
   return (
     <div className={style.container}>
@@ -30,7 +34,9 @@ export default function CartItems(props) {
             <div className={style.qty}>
               <button>-</button>
               <div>{product.qty}</div>
-              <button>+</button>
+              <button
+                onClick={async() => await addItem({qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
+              >+</button>
             </div>
 
             <div>
@@ -52,4 +58,22 @@ export default function CartItems(props) {
       </div> */}
     </div>
   )
+}
+
+async function addItem(item) {
+  const response = await fetch('/api/cart/updateCart', {
+    method: 'POST',
+    body: JSON.stringify(item),
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+
+  const data = await response.json();
+
+  if (!response.ok) {
+    throw new Error(data.message || 'Something went wrong!');
+  }
+
+  return data;
 }

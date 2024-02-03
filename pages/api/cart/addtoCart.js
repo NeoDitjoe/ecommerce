@@ -1,4 +1,4 @@
-import addToCart from "@/lib/database/addToCart"
+import addToCart from "@/lib/database/cart/addToCart"
 
 export default async function handler(req, res) {
   if(req.method === 'POST'){
@@ -13,3 +13,4 @@ export default async function handler(req, res) {
 
   }
 }
+

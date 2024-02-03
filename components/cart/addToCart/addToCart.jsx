@@ -45,7 +45,7 @@ export default function AddToCart(props) {
 }
 
 async function placeOrder(products, userEmail) {
-  const response = await fetch('/api/addtoCart', {
+  const response = await fetch('/api/cart/addtoCart', {
     method: 'POST',
     body: JSON.stringify({ products, userEmail: userEmail }),
     headers: {
