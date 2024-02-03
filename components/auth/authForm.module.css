@@ -27,6 +27,7 @@
   border: none;
   text-align: center;
 }
+
 .form input {
   background-color: rgb(216, 214, 214);
   height: 7vh;
@@ -36,7 +37,8 @@
   text-align: center;
 }
 
-.form div{
+.form div,
+.formB div{
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -61,7 +63,8 @@
   width: 80%;
 }
 
-.form button{
+.form button,
+.formB button{
   height: 5vh;
   /* width: 30%; */
   border-radius: 10px;
@@ -86,7 +89,8 @@
     display: none;
   }
 
-  .form{
+  .form,
+  .formB{
     width: 100%;
     height: 58.1vh;
   }

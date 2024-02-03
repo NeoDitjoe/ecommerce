@@ -10,7 +10,7 @@ export default function AuthForm() {
 
   const [login, setLogin] = useState(false)
   const [errorRes, setErrorRes] = useState(null)
-  const { setOpen } = StateContext()
+  const { setOpen, theme } = StateContext()
 
   const router = useRouter()
 
@@ -70,7 +70,7 @@ export default function AuthForm() {
   return (
     <div className={style.section}>
       <div className={style.formDiv}>
-        <form className={style.form} onSubmit={login ? SignInHandler : signUpHandler}>
+        <form className={theme ? style.formB : style.form} onSubmit={login ? SignInHandler : signUpHandler}>
           <h2>{login ? 'Sign In' : 'Sign Up'}</h2>
           {login ? '' : <div>
             <label htmlFor="username">Username: </label>
