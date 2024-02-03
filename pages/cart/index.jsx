@@ -1,5 +1,6 @@
 import CartItems from "@/components/cart/cartItems/userCart"
-import { getCartItems } from "@/lib/database/getItems"
+import { DummyProducts } from "@/lib/data"
+// import { getCartItems } from "@/lib/database/getItems"
 
 export default function cart(props){
   const { cartItems } = props
@@ -9,24 +10,24 @@ export default function cart(props){
   return (
     <>
       {
-        cartItems.map((item) => (
+        // cartItems.map((item) => (
           <div>
-            <CartItems {...item}/>
+            <CartItems products={DummyProducts} /* {...item} *//>
           </div>
-        ))
+        // ))
       }
     </>
    
   )
 }
 
-export async function getServerSideProps() {
+// export async function getServerSideProps() {
 
-  const cartItems = await getCartItems()
+//   const cartItems = await getCartItems()
 
-  return{
-    props:{
-      cartItems
-    }
-  }
-}
+//   return{
+//     props:{
+//       cartItems
+//     }
+//   }
+// }
