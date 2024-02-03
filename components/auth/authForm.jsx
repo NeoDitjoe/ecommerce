@@ -77,9 +77,9 @@ export default function AuthForm() {
 
           <hr />
 
-          <GoogleButton
+          {/* <GoogleButton
             onClick={() => signIn('google')}
-          />
+          /> */}
         </form>
       </div>
 
