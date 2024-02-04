@@ -6,9 +6,9 @@ export default async function handler(req, res) {
 
     try {
       await addToCart(products, userEmail)
-
+      res.status(200).json({ message: 'Success!'})
     } catch(error) {
-      res.status(417).json({message: error})
+      res.status(417).json({message: 'attempt failed!'})
     }
 
   }
