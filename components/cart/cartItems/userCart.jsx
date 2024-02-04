@@ -3,10 +3,12 @@ import style from './userCart.module.css'
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import StateContext from "@/lib/context"
+import { useState } from "react"
 
 export default function CartItems(props) {
 
   const { theme } = StateContext()
+  const [ qty, setQty ]= useState(null)
   const { products } = props
   const { data: session } = useSession()
   const userEmail = session && session.user.email[0]
@@ -17,7 +19,8 @@ export default function CartItems(props) {
     <div className={theme ? style.containerB : style.container}>
       {
         products && products.map((product) => {
-
+          
+          totalCosts.push(product.price * product.qty)
           quantity.push(product.qty)
           return (<div className={style.cart}>
             <div className={style.imgAndName}>
@@ -48,16 +51,15 @@ export default function CartItems(props) {
             </div>
 
             <div>
-              R{(product.price * product.qty).toFixed(2)}
+              R {(product.price * product.qty).toFixed(2)}
             </div>
-              {totalCosts.push(product.price * product.qty)}
           </div>)
         })
       }
 
       <div>
         <div>
-          {`Subtotal (${quantity.reduce((a, b) => a + b, 0)}): R${totalCosts.reduce((a, b) => a + b, 0).toFixed(2)}`} 
+          {`Subtotal (${quantity.reduce((a, b) => a + b, 0)}): R ${totalCosts.reduce((a, b) => a + b, 0).toFixed(2)}`} 
         </div>
         <div>
           <button>
