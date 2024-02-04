@@ -8,9 +8,7 @@ import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
 
 import Menu from '@mui/material/Menu';
-import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Link from "next/link";
@@ -19,6 +17,8 @@ import { useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import StateContext from '@/lib/context';
+
+import Badge from '@mui/material/Badge';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -62,6 +62,12 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
+const SmallAvatar = styled(Avatar)(({ theme }) => ({
+  width: 22,
+  height: 22,
+  border: `2px solid ${theme.palette.background.paper}`,
+}));
+
 export default function Header() {
 
   const { data: session } = useSession()
@@ -70,7 +76,7 @@ export default function Header() {
   const router = useRouter()
 
   const [anchorElUser, setAnchorElUser] = useState(null);
-  const { theme , setTheme} = StateContext()
+  const { theme, setTheme } = StateContext()
 
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
@@ -118,9 +124,18 @@ export default function Header() {
             {user
               ? <Box sx={{ flexGrow: 0 }} style={{ marginLeft: '10px', cursor: 'pointer' }}>
                 <Tooltip title="Open settings">
-                  <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt={user.name} src={user.image} />
-                  </IconButton>
+
+                  <Badge
+                    onClick={handleOpenUserMenu}
+                    overlap="circular"
+                    anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+                    badgeContent={
+                      // <SmallAvatar alt={user.name} src={user.image} />
+                      <p className={style.cartItemsNo}>1</p>
+                    }
+                  >
+                    <Avatar alt={user.name} src={user.image} />
+                  </Badge>
                 </Tooltip>
                 <Menu
                   sx={{ mt: '45px' }}
@@ -151,19 +166,20 @@ export default function Header() {
                     <p onClick={() => signOut()} textAlign="center">Sign Out</p>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <p onClick={() => setTheme(!theme)} textAlign="center">{theme ? 'Light theme': 'Dark theme'}</p>
+                    <p onClick={() => setTheme(!theme)} textAlign="center">{theme ? 'Light theme' : 'Dark theme'}</p>
                   </MenuItem>
                 </Menu>
               </Box>
-              : <p 
-                  className={style.signIn}
-                  onClick={() => {
-                    router.push('/auth')
-                  }}
-                >Sign In</p>}
+              : <p
+                className={style.signIn}
+                onClick={() => {
+                  router.push('/auth')
+                }}
+              >Sign In</p>}
           </Toolbar>
         </AppBar>
       </Box>
     </header>
   )
 }
+
