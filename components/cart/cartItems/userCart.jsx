@@ -49,8 +49,8 @@ export default function CartItems(props) {
 
             <div>
               R{(product.price * product.qty).toFixed(2)}
-              {totalCosts.push(product.price * product.qty)}
             </div>
+              {totalCosts.push(product.price * product.qty)}
           </div>)
         })
       }
