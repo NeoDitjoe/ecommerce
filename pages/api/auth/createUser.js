@@ -7,6 +7,7 @@ export default async function handler(req, res){
 
     try{
       await createUser(username, password, email, res)
+      res.status(200).json({ message: 'Success!'})
     }catch(error) {
       res.status(417).json({message: 'Failed! Check your internet connection then try again'})
     }
