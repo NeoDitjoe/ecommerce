@@ -10,12 +10,16 @@ export default function CartItems(props) {
   const { products } = props
   const { data: session } = useSession()
   const userEmail = session && session.user.email[0]
+  const quantity = []
+  const totalCosts = []
 
   return (
     <div className={theme ? style.containerB : style.container}>
       {
-        products && products.map((product) => (
-          <div className={style.cart}>
+        products && products.map((product) => {
+
+          quantity.push(product.qty)
+          return (<div className={style.cart}>
             <div className={style.imgAndName}>
 
               <div>
@@ -35,32 +39,33 @@ export default function CartItems(props) {
 
             <div className={theme ? style.qtyB : style.qty}>
               <button
-                onClick={async() => await addItem({qty: Number(product.qty) - 1, name: product.name, user: userEmail })}
+                onClick={async () => await addItem({ qty: Number(product.qty) - 1, name: product.name, user: userEmail })}
               >-</button>
               <div>{product.qty}</div>
               <button
-                onClick={async() => await addItem({qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
+                onClick={async () => await addItem({ qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
               >+</button>
             </div>
 
             <div>
-              R{product.price.toFixed(2) * product.qty}
+              R{(product.price * product.qty).toFixed(2)}
+              {totalCosts.push(product.price * product.qty)}
             </div>
-          </div>
-        ))
+          </div>)
+        })
       }
 
-      {/* <div>
+      <div>
         <div>
-          {`Subtotal (${'total qty'}): R${price}`}
+          {`Subtotal (${quantity.reduce((a, b) => a + b, 0)}): R${totalCosts.reduce((a, b) => a + b, 0).toFixed(2)}`} 
         </div>
         <div>
           <button>
             checkout
           </button>
         </div>
-      </div> */}
-    </div>
+      </div>
+    </div> 
   )
 }
 
