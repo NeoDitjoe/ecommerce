@@ -3,36 +3,43 @@ import style from './addToCart.module.css'
 import Backdrop from '@mui/material/Backdrop';
 import { useState } from 'react';;
 import Link from 'next/link';
+import LoadingBackdrop from '@/components/backdrop/loading';
+import StateContext from '@/lib/context';
 
 export default function AddToCart(props) {
 
-  const { name, image, price, slug } = props
+  const { name, image, price, slug } = props //it is used, props is called as a whole
   const { data: session } = useSession()
   const user = session && session.user
 
-  const [open, setOpen] = useState(false);
+  const [openSignIn, setOpopenSignInen] = useState(false);
+  const { setOpen } = StateContext()
+
   const handleClose = () => {
-    setOpen(false);
+    openSignIn(false);
   };
   const handleOpen = () => {
-    setOpen(true);
+    openSignIn(true);
   };
 
   const additem = async function (e) {
     e.preventDefault()
 
     try {
+      setOpen(true)
       await placeOrder(props, user.email[0])
+      setOpen(false)
     } catch (error) {
-      console.log('error')
+      setOpen(false)
     }
   }
+
   return (
     <div>
-      <button  className={style.button} onClick={user ? additem :handleOpen}>Add To Cart</button>
+      <button  className={style.button} onClick={user ? additem : handleOpen}>Add To Cart</button>
       <Backdrop
         sx={{ color: '#fff', zIndex: (theme) => theme.zIndex.drawer + 1 }}
-        open={open}
+        open={openSignIn}
         onClick={handleClose}
       >
         <div className={style.backdrop}>
@@ -40,6 +47,7 @@ export default function AddToCart(props) {
           <Link href={'/auth'}>Login here</Link>
         </div>
       </Backdrop>
+      <LoadingBackdrop />
     </div>
   )
 }
