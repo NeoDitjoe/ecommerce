@@ -154,19 +154,19 @@ export default function Header() {
                   onClose={handleCloseUserMenu}
                 >
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/profile`} textAlign="center">{user[1]}</Link>
+                    <Link href={`/profile`}>{user[1]}</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/cart`} textAlign="center">Cart</Link>
+                    <Link href={`/cart`}>Cart</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <Link href={`/`} textAlign="center">Home</Link>
+                    <Link href={`/`}>Home</Link>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <p onClick={() => signOut()} textAlign="center">Sign Out</p>
+                    <p onClick={() => signOut()} >Sign Out</p>
                   </MenuItem>
                   <MenuItem onClick={handleCloseUserMenu} className={style.menuItem}>
-                    <p onClick={() => setTheme(!theme)} textAlign="center">{theme ? 'Light theme' : 'Dark theme'}</p>
+                    <p onClick={() => setTheme(!theme)}>{theme ? 'Light theme' : 'Dark theme'}</p>
                   </MenuItem>
                 </Menu>
               </Box>

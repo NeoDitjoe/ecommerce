@@ -18,42 +18,47 @@ export default function CartItems(props) {
   return (
     <div className={theme ? style.containerB : style.container}>
       {
-        products && products.map((product) => {
+        products && products.map((product, index) => {
 
           totalCosts.push(product.price * product.qty)
           quantity.push(product.qty)
           return (<div className={style.cart}>
             <div className={style.imgAndName}>
 
-              <div className={style.imgDiv}>
-                <Image
-                  src={product.image}
-                  alt={product.name}
-                  width={200}
-                  height={200}
-                  className={style.img}
-                />
+                <div className={style.imgDiv}>
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    width={200}
+                    height={200}
+                    className={style.img}
+                  />
+                </div>
+
+                <div>
+                  <p className={style.name}>{product.name}</p>
+                </div>
               </div>
 
-              <div>
-                <p className={style.name}>{product.name}</p>
+              <div className={theme ? style.qtyB : style.qty}>
+                <button
+                  onClick={async () => {
+                    await addItem({ qty: Number(product.qty) - 1, name: product.name, user: userEmail })
+                    if(Number(product.qty) < 2){
+                      await removeItem(userEmail, product.name)
+                    }
+                  }}
+                >-</button>
+                <div>{product.qty}</div>
+                <button
+                  onClick={async () => await addItem({ qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
+                >+</button>
               </div>
-            </div>
 
-            <div className={theme ? style.qtyB : style.qty}>
-              <button
-                onClick={async () => await addItem({ qty: Number(product.qty) - 1, name: product.name, user: userEmail })}
-              >-</button>
-              <div>{product.qty}</div>
-              <button
-                onClick={async () => await addItem({ qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
-              >+</button>
-            </div>
-
-            <div className={style.price}>
-              {(product.price * product.qty).toFixed(2)} R
-            </div>
-          </div>)
+              <div className={style.price}>
+                {(product.price * product.qty).toFixed(2)} R
+              </div>
+            </div>)
         })
       }
 
@@ -92,4 +97,14 @@ async function addItem(item) {
   }
 
   return data;
+}
+
+async function removeItem(userEmail, name) {
+  await fetch('/api/cart/removeItem', {
+    method: 'POST',
+    body: JSON.stringify({ userEmail, name }),
+    headers: {
+      'Content-Type': 'application/json',
+    }
+  })
 }
