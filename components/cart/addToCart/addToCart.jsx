@@ -1,11 +1,7 @@
-import { signIn, useSession } from 'next-auth/react'
+import { useSession } from 'next-auth/react'
 import style from './addToCart.module.css'
 import Backdrop from '@mui/material/Backdrop';
-import CircularProgress from '@mui/material/CircularProgress';
-import Button from '@mui/material/Button';
-import { useState } from 'react';
-import GoogleButton from 'react-google-button';
-import AuthForm from '@/components/auth/authForm';
+import { useState } from 'react';;
 import Link from 'next/link';
 
 export default function AddToCart(props) {

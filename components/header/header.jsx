@@ -99,7 +99,7 @@ export default function Header() {
               sx={{ mr: 2 }}
             >
               <Link href='/' >
-                Store4Real
+                4Real
               </Link>
             </IconButton>
             <Typography

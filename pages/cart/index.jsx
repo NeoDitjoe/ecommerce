@@ -11,7 +11,7 @@ export default function cart(props){
     fetch(`/api/cart/getCartItems?user=${userEmail}`)
       .then(res => res.json())
       .then(data => setCartItems(data.results))
-  }, [cartItems])
+  })
 
   return (
     <>
