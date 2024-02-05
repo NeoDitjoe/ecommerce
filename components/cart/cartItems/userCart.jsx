@@ -3,7 +3,7 @@ import style from './userCart.module.css'
 import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import StateContext from "@/lib/context"
-import { useState } from "react"
+ import { useState } from "react"
 
 export default function CartItems(props) {
 
@@ -25,7 +25,7 @@ export default function CartItems(props) {
           return (<div className={style.cart}>
             <div className={style.imgAndName}>
 
-              <div>
+              <div className={style.imgDiv}>
                 <Image
                   src={product.image}
                   alt={product.name}
@@ -36,7 +36,7 @@ export default function CartItems(props) {
               </div>
 
               <div>
-                <p>{product.name}</p>
+                <p className={style.name}>{product.name}</p>
               </div>
             </div>
 
@@ -50,8 +50,8 @@ export default function CartItems(props) {
               >+</button>
             </div>
 
-            <div>
-              R {(product.price * product.qty).toFixed(2)}
+            <div className={style.price}>
+              {(product.price * product.qty).toFixed(2)} R
             </div>
           </div>)
         })

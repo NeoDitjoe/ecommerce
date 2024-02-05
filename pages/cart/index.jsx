@@ -1,4 +1,5 @@
 import CartItems from "@/components/cart/cartItems/userCart"
+import { DummyProducts } from "@/lib/data"
 import { useSession } from "next-auth/react"
 import { useEffect, useState } from "react"
 
@@ -17,7 +18,7 @@ export default function cart(props){
     <>
       {
         <div>
-          <CartItems products={cartItems}/>
+          <CartItems products={DummyProducts}/>
         </div>
       }
     </>

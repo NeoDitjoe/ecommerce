@@ -21,7 +21,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 12,
-    qty:1
+    qty:1,
+    user: 'ditjoeneo03@gmail.com'
   },
   {
     name: 'Vintage Nike Jacket',

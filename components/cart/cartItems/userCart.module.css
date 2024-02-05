@@ -12,7 +12,8 @@
 
 .cart {
   display: grid;
-  grid-template-columns: 33.3333333333% 33.3333333333% 33.3333333333%;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
 }
 
 .cart div:nth-child(3){
@@ -28,8 +29,15 @@
 }
 
 .img{
+
+  width: 100%;
+  height: 50px;
+}
+
+.imgDiv{
   width: 50px;
   height: 50px;
+  margin: 2px;
 }
 
 .qty{
@@ -44,10 +52,11 @@
   width: 40px;
   border: none;
   background-color: rgb(146, 146, 146);
-  height: 80%;
+  height: 40px;
   border-radius: 10px;
   cursor: pointer;
 }
+
 .qtyB{
   display: flex;
   flex-direction: row;
@@ -60,11 +69,10 @@
   width: 40px;
   border: none;
   background-color: rgb(62, 61, 61);
-  height: 80%;
+  height: 40px;
   border-radius: 10px;
   cursor: pointer;
 }
-
 
 .qtyB button:hover{
   background-color: rgba(155, 153, 153, 0.723)
@@ -72,4 +80,40 @@
 
 .qty button:hover{
   background-color: rgba(187, 185, 185, 0.723)
+}
+
+@media only screen and (max-width: 499px){
+  .qtyB button, 
+  .qty button{
+    width: 30px;
+    height: 33px;
+  }
+
+  .cart {
+    grid-template-columns: 2fr 1fr 1fr;
+  }
+
+  .name,
+  .price,
+  .qty{
+    font-size: 12px;
+  }
+}
+
+@media only screen and (max-width: 420px){
+  .qtyB button, 
+  .qty button{
+    width: 28px;
+    height: 30px;
+  }
+
+  .cart {
+    grid-template-columns: 2.5fr 1fr 1fr;
+  }
+
+  .name,
+  .price,
+  .qty{
+    font-size: 10px;
+  }
 }
