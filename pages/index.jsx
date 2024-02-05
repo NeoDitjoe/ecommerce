@@ -1,28 +1,28 @@
 import { Items } from '@/components/productItem/productItem';
-// import getItem from '@/lib/database/getItems';
+import getItem from '@/lib/database/getItems';
 import { DummyProducts } from '@/lib/data';
 
 export default function Home(props) {
 
-  // const { products } = props
+  const { products } = props
 
   return (
     <main style={{ width: '99%' }}>
       <div className='mainIndexBackground'></div>
       <h2 className='lastestProducts'>Latest Products</h2>
       <Items
-        products={DummyProducts}
+        products={products}
       />
     </main>
   )
 }
 
-// export async function getServerSideProps() {
-//   const products = await getItem()
+export async function getServerSideProps() {
+  const products = await getItem()
 
-//   return {
-//     props: {
-//       products
-//     }
-//   }
-// }
+  return {
+    props: {
+      products
+    }
+  }
+}

@@ -13,7 +13,7 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import Link from "next/link";
 import style from './header.module.css'
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { signOut, useSession } from 'next-auth/react';
 import { useRouter } from 'next/router';
 import StateContext from '@/lib/context';
@@ -74,7 +74,6 @@ export default function Header() {
   const user = session && session.user.email
 
   const router = useRouter()
-
   const [anchorElUser, setAnchorElUser] = useState(null);
   const { theme, setTheme } = StateContext()
 
@@ -85,6 +84,19 @@ export default function Header() {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
+
+  const [ qtyData, setQtyData ] = useState([])
+
+  useEffect(() => {
+    fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
+      .then(res => res.json())
+      .then(data => setQtyData(data.results))
+  })
+
+  const qty = []
+  qtyData && qtyData.map((items) => (
+    qty.push(items.qty)
+  ))
 
   return (
     <header>
@@ -131,7 +143,7 @@ export default function Header() {
                     anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
                     badgeContent={
                       // <SmallAvatar alt={user.name} src={user.image} />
-                      <p className={style.cartItemsNo}>1</p>
+                      <p className={style.cartItemsNo}>{qty.reduce((a, b) => a + b, 0)}</p>
                     }
                   >
                     <Avatar alt={user.name} src={user.image} />
