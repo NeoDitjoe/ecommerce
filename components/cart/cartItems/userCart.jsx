@@ -22,8 +22,9 @@ export default function CartItems(props) {
 
           totalCosts.push(product.price * product.qty)
           quantity.push(product.qty)
-          return (<div className={style.cart}>
-            <div className={style.imgAndName}>
+          return (
+            <div className={style.cart} key={index}>
+              <div className={style.imgAndName}>
 
                 <div className={style.imgDiv}>
                   <Image
@@ -44,7 +45,7 @@ export default function CartItems(props) {
                 <button
                   onClick={async () => {
                     await addItem({ qty: Number(product.qty) - 1, name: product.name, user: userEmail })
-                    if(Number(product.qty) < 2){
+                    if (Number(product.qty) < 2) {
                       await removeItem(userEmail, product.name)
                     }
                   }}
