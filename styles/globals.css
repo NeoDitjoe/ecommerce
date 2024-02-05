@@ -32,27 +32,28 @@
 
 @keyframes banner {
   0%{
-    background: url('https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-repeat: no-repeat;
-    background-size: cover;
+    background: url('https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position-y: -120px;
+
   }
   25%{
+    background: url('https://images.pexels.com/photos/9499299/pexels-photo-9499299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-position-y: -120px;
+  }
+  50%{
+    background: url('https://images.pexels.com/photos/8516198/pexels-photo-8516198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+    background-size: cover; 
+    background-repeat: no-repeat;
+  }
+  75%{
     background: url('https://images.pexels.com/photos/3965545/pexels-photo-3965545.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-repeat: no-repeat;
     background-size: cover;
   }
-  50%{
-    background: url('https://images.pexels.com/photos/2043590/pexels-photo-2043590.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-position-y: -120px;
-  }
-  75%{
-    background: url('https://images.pexels.com/photos/9499299/pexels-photo-9499299.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-position-y: -110px;
-  }
   100%{
-    background: url('https://images.pexels.com/photos/8516198/pexels-photo-8516198.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
-    background-size: cover; 
+    background: url('https://images.pexels.com/photos/428340/pexels-photo-428340.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
     background-repeat: no-repeat;
+    background-size: cover;
   }
 }
 
