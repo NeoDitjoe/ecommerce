@@ -54,7 +54,7 @@ export function Items({products}) {
   return (
     <Box sx={{ flexGrow: 2 }}>
       <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 12, sm: 12, md: 12 }}>
-        {products.map((product, index) => (
+        {products && products.map((product, index) => (
           <Grid xs={6} sm={3} md={2} key={index}>
             <Item style={{ background: theme? '#1A2027' : 'rgb(220, 218, 218)'}}>
               <Structure
