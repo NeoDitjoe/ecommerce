@@ -115,3 +115,38 @@ export const DummyProducts = [
     qty:1
   },
 ]
+
+export const dummyUsers = [
+  {
+    name: 'cozy',
+    email: 'cozy@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000'
+  },
+  {
+    name: 'cozy',
+    email: 'cozy@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000'
+  },
+  {
+    name: 'cozy',
+    email: 'cozy@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000'
+  },
+  {
+    name: 'cozy',
+    email: 'cozy@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000'
+  },
+]
