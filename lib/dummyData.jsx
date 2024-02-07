@@ -123,30 +123,58 @@ export const dummyUsers = [
     image: golfWangGreenJacket,
     status: 'done',
     date: '20-02-2024',
-    amount: '8000'
+    amount: '8000',
+    role: 'Admin',
+    status: 'active'
   },
   {
     name: 'cozy',
-    email: 'cozy@gmail.com',
+    email: 'user@gmail.com',
     image: golfWangGreenJacket,
     status: 'done',
     date: '20-02-2024',
-    amount: '8000'
+    amount: '8000',
+    role: 'user',
+    status: 'active'
   },
   {
     name: 'cozy',
-    email: 'cozy@gmail.com',
+    email: 'user@gmail.com',
     image: golfWangGreenJacket,
     status: 'done',
     date: '20-02-2024',
-    amount: '8000'
+    amount: '8000',
+    role: 'user',
+    status: 'active'
   },
   {
     name: 'cozy',
-    email: 'cozy@gmail.com',
+    email: 'user@gmail.com',
     image: golfWangGreenJacket,
     status: 'done',
     date: '20-02-2024',
-    amount: '8000'
+    amount: '8000',
+    role: 'user',
+    status: 'active'
+  },
+  {
+    name: 'cozy',
+    email: 'user@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000',
+    role: 'user',
+    status: 'active'
+  },
+  {
+    name: 'cozy',
+    email: 'user@gmail.com',
+    image: golfWangGreenJacket,
+    status: 'done',
+    date: '20-02-2024',
+    amount: '8000',
+    role: 'user',
+    status: 'active'
   },
 ]

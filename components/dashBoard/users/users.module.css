@@ -1,0 +1,31 @@
+.img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+  margin: 10px;
+}
+
+.table {
+  width: 100%;
+}
+
+.imgAndName {
+  display: flex;
+  align-items: center;
+}
+
+.view, .delete {
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  padding: 5px;
+  margin: 5px;
+}
+
+.view{
+  background-color:rgb(0, 140, 255);
+}
+
+.delete {
+  background-color: crimson;
+}
