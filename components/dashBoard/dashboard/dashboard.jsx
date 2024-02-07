@@ -1,19 +1,9 @@
-import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
-import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
 import { dummyUsers } from '@/lib/dummyData';
 import style from './dashboard.module.css'
 import Image from 'next/image';
-
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  background: 'none',
-  boxShadow: 'none',
-  color: 'white'
-}));
+import { Item } from '../muiStyle';
 
 export default function Dashboard() {
 
