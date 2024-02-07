@@ -40,7 +40,7 @@ export default function AddProduct() {
       qty: 0
     }
 
-    // await addItem('/api/dashboard/addNewProduct', { addData })
+    await addItem('/api/dashboard/addNewProduct', { addData })
     console.log(addData)
 
   }
