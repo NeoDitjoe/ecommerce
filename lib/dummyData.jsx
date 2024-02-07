@@ -22,7 +22,8 @@ export const DummyProducts = [
     banner: '',
     stock: 12,
     qty:1,
-    user: 'ditjoeneo03@gmail.com'
+    user: 'ditjoeneo03@gmail.com',
+    categoryList: ['shirts', 'skipper', 'shortsleeve', 'white']
   },
   {
     name: 'Vintage Nike Jacket',
@@ -37,7 +38,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 2,
-    qty:1
+    qty:1,
+    categoryList: ['nike', 'jackets', 'winter', 'white']
   },
   {
     name: 'Rockstar white boots',
@@ -52,7 +54,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 4,
-    qty:1
+    qty:1,
+    categoryList: ['boots', 'tekkies', 'white']
   },
   {
     name: 'Mucho Jeans',
@@ -67,7 +70,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 0,
-    qty:1
+    qty:1,
+    categoryList: ['denim', 'blue', 'rockstar', 'jeans', 'long', 'pants']
   },
   {
     name: 'Goldwang Jacket',
@@ -82,12 +86,13 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 33,
-    qty:1
+    qty:1,
+    categoryList:['jackects', 'male', 'green', 'winter']
   },
   {
     name: 'belt glasses',
     slug: 'belt-glasses',
-    category: 'glasses',
+    category: 'Accessories',
     image: beltShades,
     price: 199.98,
     brand: 'Rockstar',
@@ -97,7 +102,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 5,
-    qty:1
+    qty:1,
+    categoryList:['Accessories', 'male', 'female', 'summer']
   },
   {
     name: 'Timberland Boots',
@@ -112,7 +118,8 @@ export const DummyProducts = [
     isFeatured: true,
     banner: '',
     stock: 20,
-    qty:1
+    qty:1,
+    categoryList:['shoes', 'boots', 'male', 'brown', 'winter']
   },
 ]
 
