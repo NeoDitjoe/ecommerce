@@ -84,19 +84,19 @@ export default function AddProduct() {
 
           <Grid xs={12} md={6} s={2} >
             <Item>
-              <input type="text" placeholder="categories" ref={categoriesListRef} />
+              <input type="text" placeholder="Categories" ref={categoriesListRef} />
             </Item>
           </Grid>
 
           <Grid xs={12} md={6} s={2} >
             <Item>
-              <textarea type="text" placeholder="description" ref={descriptionRef} />
+              <textarea type="text" placeholder="Description" ref={descriptionRef} />
             </Item>
           </Grid>
 
           <Grid xs={12} md={6} s={2} >
             <Item>
-              <input type="number" placeholder="stock" ref={stockRef} />
+              <input type="number" placeholder="Stock no." ref={stockRef} />
             </Item>
           </Grid>
 
