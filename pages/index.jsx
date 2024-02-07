@@ -1,6 +1,5 @@
 import { Items } from '@/components/productItem/productItem';
 import getItem from '@/lib/database/getItems';
-import { DummyProducts } from '@/lib/data';
 
 export default function Home(props) {
 
