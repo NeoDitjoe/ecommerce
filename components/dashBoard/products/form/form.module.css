@@ -6,7 +6,7 @@
   border-radius: 5px;
   border: none;
   background-color: rgb(27, 27, 42);
-  color: rgb(171, 154, 154);
+  color: white;
 }
 
 .main textarea{
@@ -16,7 +16,7 @@
   border-radius: 5px;
   border: none;
   background-color: rgb(27, 27, 42);
-  color: rgb(171, 154, 154);
+  color: white;
 }
 
 .button{

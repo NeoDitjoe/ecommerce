@@ -1,20 +1,28 @@
-.imgDiv{
+.imgDiv {
   width: 100%;
 }
 
-.img{
+.img {
   width: 100%;
   height: 100%;
 }
 
-.button{
+.button,
+.closeButton {
   height: 7vh;
   width: 100%;
   border-radius: 10px;
   cursor: pointer;
-  background-color:rgb(0, 140, 255);
   font-size: large;
   border: none;
+}
+
+.button {
+  background-color: rgb(0, 140, 255);
+}
+
+.closeButton{
+  background: crimson;
 }
 
 .form {

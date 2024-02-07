@@ -108,7 +108,7 @@ export default function View(props) {
 
           <Backdrop
             sx={{
-              color: '#fff',
+              color: 'white',
               zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
             open={open}
@@ -128,7 +128,7 @@ export default function View(props) {
                 // add={/}
               />
               <button
-                className={style.button}
+                className={style.closeButton}
                 onClick={() => {
                   setOpen(false)
                   
