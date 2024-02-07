@@ -20,8 +20,8 @@ const sideaNavLinks = [
         name: 'Products'
       },
       {
-        path: '/dashboard/transaction',
-        name: 'transaction'
+        path: '/dashboard/transactions',
+        name: 'transactions'
       },
     ]
     
