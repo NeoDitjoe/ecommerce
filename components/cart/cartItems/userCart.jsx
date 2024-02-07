@@ -4,6 +4,7 @@ import { useRouter } from "next/router"
 import { useSession } from "next-auth/react"
 import StateContext from "@/lib/context"
 import { useState } from "react"
+import addItem from "@/lib/database/addItems"
 
 export default function CartItems(props) {
 
@@ -44,7 +45,7 @@ export default function CartItems(props) {
               <div className={theme ? style.qtyB : style.qty}>
                 <button
                   onClick={async () => {
-                    await addItem({ qty: Number(product.qty) - 1, name: product.name, user: userEmail })
+                    await addItem('/api/cart/updateCart', { qty: Number(product.qty) - 1, name: product.name, user: userEmail })
                     if (Number(product.qty) < 2) {
                       await removeItem(userEmail, product.name)
                     }
@@ -52,7 +53,7 @@ export default function CartItems(props) {
                 >-</button>
                 <div>{product.qty}</div>
                 <button
-                  onClick={async () => await addItem({ qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
+                  onClick={async () => await addItem('/api/cart/updateCart', { qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
                 >+</button>
               </div>
 
@@ -80,24 +81,6 @@ export default function CartItems(props) {
       </div>
     </div>
   )
-}
-
-async function addItem(item) {
-  const response = await fetch('/api/cart/updateCart', {
-    method: 'POST',
-    body: JSON.stringify(item),
-    headers: {
-      'Content-Type': 'application/json',
-    },
-  });
-
-  const data = await response.json();
-
-  if (!response.ok) {
-    throw new Error(data.message || 'Something went wrong!');
-  }
-
-  return data;
 }
 
 async function removeItem(userEmail, name) {
