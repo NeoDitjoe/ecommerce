@@ -49,9 +49,9 @@ export default function Products() {
                         <td>{product.date}</td>
                         <td>{product.stock}</td>
                         <td>
-                          <button className={style.view}
-                            onClick={() => console.log(product)}
-                          >view</button>
+                          <Link className={style.view}
+                            href={`/dashboard/products/view?product=${product.name}`}
+                          >view</Link>
                           <button className={style.delete}>delete</button>
                         </td>
                       </tr>
