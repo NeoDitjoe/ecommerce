@@ -12,14 +12,14 @@ export default function AddToCart(props) {
   const { data: session } = useSession()
   const user = session && session.user
 
-  const [openSignIn, setOpopenSignInen] = useState(false);
+  const [openSignIn, setOpopenSignIn] = useState(false);
   const { setOpen } = StateContext()
 
   const handleClose = () => {
-    openSignIn(false);
+    setOpopenSignIn(false);
   };
   const handleOpen = () => {
-    openSignIn(true);
+    setOpopenSignIn(true);
   };
 
   const additem = async function (e) {
