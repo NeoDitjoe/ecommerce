@@ -19,14 +19,17 @@ export default function DashboardWrapper({ children }) {
     <div className={style.main}>
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={1}>
-          <Grid xs={6} md={2.3} s={2} >
+          <Grid xs={12} md={2.3} s={2} >
             <Item style={{background: 'rgb(27, 27, 42)'}}>
               <SideNav />
             </Item>
           </Grid>
 
-          <Grid xs={12} md={6} s={2} >
-            <Item>
+          <Grid xs={12} md={9.7} s={2} >
+            <Item style={{ color: 'white', background: 'rgb(27, 27, 42)'}}>
+              nav
+            </Item>
+            <Item style={{ color: 'white'}}>
               {children}
             </Item>
           </Grid>

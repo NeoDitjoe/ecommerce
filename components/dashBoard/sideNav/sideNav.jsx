@@ -1,6 +1,7 @@
 import Link from "next/link";
 import style from "./sideNav.module.css"
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 
 const sideaNavLinks = [
   {
@@ -77,7 +78,7 @@ export default function SideNav() {
                   className={`${style.links} 
                   ${pathname === link.path ? style.activePath : ''}`
                 }>
-                  
+
                   {link.name}
                 </Link>
               ))
@@ -86,6 +87,11 @@ export default function SideNav() {
         </div>
       ))
     }
+    <button 
+      className={style.logout}
+      onClick={() => signOut()}
+    >Sign Out</button>
+
    </div>
   )
 }
