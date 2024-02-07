@@ -1,5 +1,7 @@
 import { usePathname } from "next/navigation"
 import style from './navbar.module.css'
+import { MdMessage, MdNotifications } from "react-icons/md";
+import { FaGlobeAfrica } from "react-icons/fa";
 
 export default function Navbar() {
 
@@ -19,11 +21,11 @@ export default function Navbar() {
           <input placeholder="search" />
         </div>
 
-        <div>i</div>
+        <div><MdMessage/></div>
 
-        <div>c</div>
+        <div><MdNotifications/></div>
 
-        <div>n</div>
+        <div><FaGlobeAfrica/></div>
       </div>
     </div>
   )

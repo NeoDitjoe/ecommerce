@@ -24,3 +24,8 @@
 
   gap: 5px;
 }
+
+.navbar div:nth-child(2){
+  align-items: center;
+  cursor: pointer;
+}
