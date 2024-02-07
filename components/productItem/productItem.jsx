@@ -12,11 +12,11 @@ export default function Structure(props) {
 
   const { theme } = StateContext()
 
-  const { image, name, slug, brand, price } = props.product
+  const { image, name, slug, brand, price, _id } = props.product
   return (
     <div className={theme ? style.mainB : style.main}>
       <figure>
-        <Link href={`/product/${name}`}>
+        <Link href={`/product/${_id}`}>
           <Image
             src={image}
             alt={name}
@@ -28,7 +28,7 @@ export default function Structure(props) {
       </figure>
 
       <div>
-        <Link href={`/product/${name}`}>
+        <Link href={`/product/${_id}`}>
           <h3>{name}</h3>
         </Link>
         <p>{brand}</p>

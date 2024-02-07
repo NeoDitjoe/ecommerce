@@ -19,7 +19,7 @@ export async function getServerSideProps(props) {
   const { params } = props
   const products = await getItem()
 
-  const product = products.find((items) => items.name === params.slug)
+  const product = products.find((items) => items._id === params.slug)
 
   return {
     props: {
