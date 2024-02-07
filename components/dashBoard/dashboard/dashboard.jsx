@@ -62,7 +62,7 @@ export default function Dashboard() {
                         <td>{user.name}</td>
                         <td>{user.status}</td>
                         <td>{user.date}</td>
-                        <td>{user.amount}</td>
+                        <td>R {user.amount}</td>
                         <td>{user.email}</td>
                       </tr>
                     ))

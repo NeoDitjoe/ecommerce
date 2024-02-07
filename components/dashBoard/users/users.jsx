@@ -23,7 +23,6 @@ export default function Users() {
                     <td>Created At</td>
                     <td>Role</td>
                     <td>Status</td>
-                    <td>Action</td>
                   </tr>
                 </thead>
                 <tbody>
@@ -45,12 +44,6 @@ export default function Users() {
                         <td>{user.date}</td>
                         <td>{user.role}</td>
                         <td>{user.status}</td>
-                        <td>
-                          <button className={style.view}
-                            onClick={() => console.log(user)}
-                          >view</button>
-                          <button className={style.delete}>delete</button>
-                        </td>
                       </tr>
                     ))
                   }
