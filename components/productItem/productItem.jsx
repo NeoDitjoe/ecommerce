@@ -16,7 +16,7 @@ export default function Structure(props) {
   return (
     <div className={theme ? style.mainB : style.main}>
       <figure>
-        <Link href={`/product/${slug}`}>
+        <Link href={`/product/${name}`}>
           <Image
             src={image}
             alt={name}
@@ -28,7 +28,7 @@ export default function Structure(props) {
       </figure>
 
       <div>
-        <Link href={`/product/${slug}`}>
+        <Link href={`/product/${name}`}>
           <h3>{name}</h3>
         </Link>
         <p>{brand}</p>

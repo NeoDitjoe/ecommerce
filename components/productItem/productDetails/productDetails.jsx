@@ -19,8 +19,8 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function ProductDetails(props) {
 
-  const { 
-    image, name, rating, reviewsCount, 
+  const {
+    image, name, rating, reviewsCount,
     description, brand, stock, price
   } = props
 
@@ -53,13 +53,13 @@ export default function ProductDetails(props) {
                       <li>
                         <h1>{name}</h1>
                       </li>
-                        {/* <Typography component="legend">Read only</Typography> */}
-<Rating name="read-only" value={5} readOnly />
+                      {/* <Typography component="legend">Read only</Typography> */}
+                      <Rating name="read-only" value={5} readOnly />
                       <li>
                         {rating} of {reviewsCount}
                       </li>
                       <li>{brand}</li>
-                      <hr style={{background:'gray'}}/>
+                      <hr style={{ background: 'gray' }} />
                       <li>
                         Description: <p>{description}</p>
                       </li>
@@ -70,23 +70,23 @@ export default function ProductDetails(props) {
                 <Grid xs={12} md={6} s={2} >
                   <Item className={style.priceBox}>
                     {/* <div className={style.box}> */}
-                      <div>
-                        <div className={style.price}>
-                          <div>Price</div>
-                          <div>R{price}</div>
-                        </div>
+                    <div>
+                      <div className={style.price}>
+                        <div>Price</div>
+                        <div>R{price}</div>
+                      </div>
 
-                        <div className={style.stock}>
-                          <div>Status</div>
-                          <div>
-                            {stock > 0 ? 'In Stock' : 'Out of Stock'}
-                          </div>
-                        </div>
-
+                      <div className={style.stock}>
+                        <div>Status</div>
                         <div>
-                          <AddToCart {...props}/>
+                          {stock > 0 ? 'In Stock' : 'Out of Stock'}
                         </div>
                       </div>
+
+                      <div>
+                        <AddToCart {...props} />
+                      </div>
+                    </div>
                     {/* </div> */}
                   </Item>
                 </Grid>

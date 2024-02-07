@@ -2,7 +2,6 @@ import ProductDetails from "@/components/productItem/productDetails/productDetai
 import getItem from "@/lib/database/getItems"
 import Link from "next/link"
 
-
 export default function Product(props) {
 
   const { product } = props
@@ -15,12 +14,12 @@ export default function Product(props) {
   )
 }
 
-export function getServerSideProps(props) {
+export async function getServerSideProps(props) {
 
   const { params } = props
-  const products = getItem()
+  const products = await getItem()
 
-  const product = products.find((items) => items.slug === params.slug)
+  const product = products.find((items) => items.name === params.slug)
 
   return {
     props: {
