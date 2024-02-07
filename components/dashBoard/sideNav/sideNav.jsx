@@ -66,14 +66,15 @@ export default function SideNav() {
   return (
    <div>
     {
-      sideaNavLinks.map((items) => (
-        <div className={style.main}>
+      sideaNavLinks.map((items, index) => (
+        <div className={style.main} key={index}>
           <h3>{items.title}</h3>
 
           <div>
             {
-              items.list.map((link) => (
+              items.list.map((link, j) => (
                 <Link 
+                key={index+j}
                   href={link.path} 
                   className={`${style.links} 
                   ${pathname === link.path ? style.activePath : ''}`

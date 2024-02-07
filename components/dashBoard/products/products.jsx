@@ -28,8 +28,8 @@ export default function Products() {
                 </thead>
                 <tbody>
                   {
-                    dummyUsers.map((user) => (
-                      <tr>
+                    dummyUsers.map((user, index) => (
+                      <tr key={index}>
                         <td className={style.imgAndName}>
                           <Image
                             src={user.image}

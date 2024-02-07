@@ -47,8 +47,8 @@ export default function Dashboard() {
                 </thead>
                 <tbody>
                   {
-                    dummyUsers.map((user) => (
-                      <tr>
+                    dummyUsers.map((user, index) => (
+                      <tr key={index}>
                         <td>
                           <Image 
                             src={user.image}
