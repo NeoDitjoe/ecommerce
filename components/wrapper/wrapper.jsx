@@ -15,7 +15,7 @@ export default function Wrapper(props) {
 
   return (
       <section className={`${inter.className} ${theme ? style.black : style.white }`}>
-        {pathname ? '' : <Header />}
+        {path ? '' : <Header />}
         <div>
           {children}
         </div>
