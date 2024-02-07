@@ -1,62 +1,91 @@
 import Link from "next/link";
 import style from "./sideNav.module.css"
+import { usePathname } from "next/navigation";
+
+const sideaNavLinks = [
+  {
+    title: 'pages',
+    list: [
+      {
+        path: '/dashboard',
+        name: 'Dashboard'
+      },
+      {
+        path: '/dashboard/users',
+        name: 'Users'
+      },
+      {
+        path: '/dashboard/products',
+        name: 'Products'
+      },
+      {
+        path: '/dashboard/transaction',
+        name: 'transaction'
+      },
+    ]
+    
+  },
+  {
+    title: 'Analatics',
+    list: [
+      {
+        path: '/dashboard/revenue',
+        name: 'Revenue'
+      },
+      {
+        path: '/dashboard/reports',
+        name: 'Reports'
+      },
+      {
+        path: '/dashboard/teams',
+        name: 'Teams'
+      },
+    ]
+  },
+  {
+    title: 'User',
+    list: [
+      {
+        path: '/dashboard/settings',
+        name: 'Settings'
+      },
+      {
+        path: '/dashboard/helps',
+        name: 'Help'
+      },
+    ]
+  }
+
+]
 
 export default function SideNav() {
 
+  const pathname = usePathname()
+
   return (
-    <div>
-      <div>
-        <h3>Pages</h3>
-        <div className={style.links}>
-          <div>
-            <Link href={'/dashboard'}>Dashboard</Link>
-          </div>
+   <div>
+    {
+      sideaNavLinks.map((items) => (
+        <div className={style.main}>
+          <h3>{items.title}</h3>
 
           <div>
-            <Link href={'/dashboard/users'}>User</Link>
-          </div>
-
-          <div>
-            <Link href={'/dashboard/products'}>products</Link>
-          </div>
-          <div>
-            <Link href={'/dashboard/transaction'}>Transcations</Link>
-          </div>
-
-        </div>
-      </div>
-
-      <div>
-        <h3>Analatics</h3>
-
-        <div className={style.links}>
-          <div>
-            <Link href={'/dashboard/'}>Revenue</Link>
-          </div>
-
-          <div>
-            <Link href={'/dashboard/'}>Reports</Link>
-          </div>
-
-          <div>
-            <Link href={'/dashboard/'}>Teams</Link>
+            {
+              items.list.map((link) => (
+                <Link 
+                  href={link.path} 
+                  className={`${style.links} 
+                  ${pathname === link.path ? style.activePath : ''}`
+                }>
+                  
+                  {link.name}
+                </Link>
+              ))
+            }
           </div>
         </div>
-      </div>
-
-      <div>
-        <h3>User</h3>
-
-        <div className={style.links}>
-          <div>
-            <Link href={'/dashboard/'}>Settings</Link>
-          </div>
-
-          <div>
-            <Link href={'/dashboard/'}>Help</Link>
-          </div>
-        </div>
-      </div>
-    </div>
+      ))
+    }
+   </div>
   )
 }

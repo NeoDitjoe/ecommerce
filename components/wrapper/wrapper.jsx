@@ -13,7 +13,7 @@ export default function Wrapper(props) {
   return (
       <section className={`${inter.className} ${theme ? style.black : style.white }`}>
         <Header />
-        <div style={{marginLeft:'10px'}}>
+        <div>
           {children}
         </div>
         <footer>
