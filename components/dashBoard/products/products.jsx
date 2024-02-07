@@ -2,11 +2,12 @@ import { Item } from "../muiStyle"
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import style from './products.module.css'
-import { DummyProducts, dummyUsers } from "@/lib/dummyData";
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Products() {
+export default function Products(props) {
+
+  const { products } = props
 
   return (
     <div>
@@ -31,7 +32,7 @@ export default function Products() {
                 </thead>
                 <tbody>
                   {
-                    DummyProducts.map((product, index) => (
+                    products && products.map((product, index) => (
                       <tr key={index}>
                         <td className={style.imgAndName}>
                           <Image
@@ -44,7 +45,7 @@ export default function Products() {
                           <p>{product.name}</p>
                         </td>
 
-                        <td className={style.description}>{product.description.substring(0, 50)}</td>
+                        <td className={style.description}>{product.description}</td>
                         <td>R {product.price.toFixed(2)}</td>
                         <td>{product.date}</td>
                         <td>{product.stock}</td>
