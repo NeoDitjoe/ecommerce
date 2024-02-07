@@ -27,9 +27,10 @@ export default function DashboardWrapper({ children }) {
           </Grid>
 
           <Grid xs={12} md={9.7} s={2} >
-            <Item style={{ padding: '20px', background: 'rgb(27, 27, 42)'}}>
+            <Item >
               <Navbar />
             </Item>
+            
             <Item style={{ color: 'white'}}>
               {children}
             </Item>

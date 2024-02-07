@@ -5,6 +5,9 @@
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+  background: rgb(27, 27, 42);
+  padding: 20px;
+  border-radius: 5px;
 }
 
 .navbar input {
