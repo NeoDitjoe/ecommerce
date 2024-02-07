@@ -2,8 +2,9 @@ import { Item } from "../muiStyle"
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import style from './products.module.css'
-import { dummyUsers } from "@/lib/dummyData";
+import { DummyProducts, dummyUsers } from "@/lib/dummyData";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Products() {
 
@@ -14,39 +15,44 @@ export default function Products() {
 
           <Grid xs={12} md={12} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
-
+              <button className={style.addnew}>
+                <Link href={'/dashboard/products/add'} >Add New</Link>
+              </button>
               <table className={style.table}>
                 <thead>
                   <tr>
-                    <td>Name</td>
-                    <td>Email</td>
+                    <td>Title</td>
+                    <td>Descrpition</td>
+                    <td>Price</td>
                     <td>Created At</td>
-                    <td>Role</td>
-                    <td>Status</td>
+                    <td>stock</td>
                     <td>Action</td>
                   </tr>
                 </thead>
                 <tbody>
                   {
-                    dummyUsers.map((user, index) => (
+                    DummyProducts.map((product, index) => (
                       <tr key={index}>
                         <td className={style.imgAndName}>
                           <Image
-                            src={user.image}
+                            src={product.image}
                             className={style.img}
-                            alt={user.email}
+                            alt={product.email}
                             width={200}
                             height={200}
                           />
-                          <p>{user.name}</p>
+                          <p>{product.name}</p>
                         </td>
 
-                        <td>{user.status}</td>
-                        <td>{user.email}</td>
-                        <td>{user.date}</td>
-                        <td>{user.status}</td>
+                        <td className={style.description}>{product.description.substring(0, 50)}</td>
+                        <td>R {product.price.toFixed(2)}</td>
+                        <td>{product.date}</td>
+                        <td>{product.stock}</td>
                         <td>
-                            dd
+                          <button className={style.view}
+                            onClick={() => console.log(product)}
+                          >view</button>
+                          <button className={style.delete}>delete</button>
                         </td>
                       </tr>
                     ))
