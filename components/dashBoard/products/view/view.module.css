@@ -16,3 +16,10 @@
   font-size: large;
   border: none;
 }
+
+.form {
+  background-color: white;
+  padding: 20px;
+  width: 80%;
+  border-radius: 10px;
+}

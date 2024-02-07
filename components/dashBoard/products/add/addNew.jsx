@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import style from './addNew.module.css'
 import { useRef } from "react";
+import addItem from "@/lib/database/addItems";
+import Form from "../form/form";
 
 export default function AddProduct() {
 
@@ -16,14 +18,14 @@ export default function AddProduct() {
   const descriptionRef = useRef()
   const stockRef = useRef()
 
-  const add = function() {
+  const add = async function () {
     const name = nameRef.current.value
     const price = priceRef.current.value
     const category = categoryRef.current.value
-    const file = fileRef.current.value 
-    const image = imageRef.current.value 
-    const categoryList = categoriesListRef.current.value 
-    const description = descriptionRef.current.value 
+    const file = fileRef.current.value
+    const image = imageRef.current.value
+    const categoryList = categoriesListRef.current.value
+    const description = descriptionRef.current.value
     const stock = stockRef.current.value
 
     const addData = {
@@ -32,85 +34,31 @@ export default function AddProduct() {
       category,
       file,
       image,
-      categoryList : categoryList.split(' '),
+      categoryList: categoryList.split(' '),
       description,
       stock,
-      qty:0
+      qty: 0
     }
 
+    // await addItem('/api/dashboard/addNewProduct', { addData })
     console.log(addData)
+
   }
 
   return (
     <div className={style.main}>
-      <Box sx={{ flexGrow: 1 }}>
-        <Grid container spacing={1}>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type='text' placeholder="Product Name" ref={nameRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="number" placeholder="Price" ref={priceRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="text" placeholder="Category" ref={categoryRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="text" placeholder="Brand" ref={brandRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input style={{ cursor: 'pointer' }} type="file" placeholder="Price" ref={fileRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="text" placeholder="Image Link" ref={imageRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="text" placeholder="Categories" ref={categoriesListRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <textarea type="text" placeholder="Description" ref={descriptionRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <input type="number" placeholder="Stock no." ref={stockRef} />
-            </Item>
-          </Grid>
-
-          <Grid xs={12} md={6} s={2} >
-            <Item>
-              <button
-                className={style.button}
-                onClick={add}
-              >Submit</button>
-            </Item>
-          </Grid>
-
-        </Grid>
-      </Box>
+      <Form
+        nameRef={nameRef}
+        priceRef={priceRef}
+        categoryRef={categoryRef}
+        brandRef={brandRef}
+        fileRef={fileRef}
+        imageRef={imageRef}
+        categoriesListRef={categoriesListRef}
+        descriptionRef={descriptionRef}
+        stockRef={stockRef}
+        add={add}
+      />
     </div>
   )
 }
