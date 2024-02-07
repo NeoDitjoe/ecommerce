@@ -4,6 +4,7 @@ import { styled } from '@mui/material/styles';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Unstable_Grid2';
+import Navbar from "../navbar/navbar";
 
 const Item = styled(Paper)(({ theme }) => ({
   backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
@@ -26,8 +27,8 @@ export default function DashboardWrapper({ children }) {
           </Grid>
 
           <Grid xs={12} md={9.7} s={2} >
-            <Item style={{ color: 'white', background: 'rgb(27, 27, 42)'}}>
-              nav
+            <Item style={{ padding: '20px', background: 'rgb(27, 27, 42)'}}>
+              <Navbar />
             </Item>
             <Item style={{ color: 'white'}}>
               {children}
