@@ -146,7 +146,7 @@ export default function Header() {
                       <p className={style.cartItemsNo}>{qty.reduce((a, b) => a + b, 0)}</p>
                     }
                   >
-                    <Avatar alt={user.name} src={user.image} />
+                    <Avatar alt={user[1]} src={user[2]} />
                   </Badge>
                 </Tooltip>
                 <Menu

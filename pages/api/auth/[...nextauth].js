@@ -32,7 +32,7 @@ export default NextAuth({
         if (!isValid) {
           throw new Error('Incorrect Password')
         }
-        return { email: [user.email, user.username] }
+        return { email: [user.email, user.username, user.image] }
       }
     })
   ],
