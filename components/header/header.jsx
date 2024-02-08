@@ -85,7 +85,7 @@ export default function Header() {
     setAnchorElUser(null);
   };
 
-  const [ qtyData, setQtyData ] = useState([])
+  const [qtyData, setQtyData] = useState([])
 
   useEffect(() => {
     fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
@@ -146,7 +146,7 @@ export default function Header() {
                       <p className={style.cartItemsNo}>{qty.reduce((a, b) => a + b, 0)}</p>
                     }
                   >
-                    <Avatar alt={user[1]} src={user[2]} />
+                    <Avatar alt={user[1]} src={''} />
                   </Badge>
                 </Tooltip>
                 <Menu
