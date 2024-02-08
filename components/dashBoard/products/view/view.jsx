@@ -115,6 +115,14 @@ export default function View(props) {
             
           >
             <div className={style.form}>
+
+            <button
+                className={style.closeButton}
+                onClick={() => {
+                  setOpen(false)
+                  
+                }}
+              >Close</button>
               <Form
                 nameRef={nameRef}
                 priceRef={priceRef}
@@ -127,13 +135,7 @@ export default function View(props) {
                 stockRef={stockRef}
                 // add={/}
               />
-              <button
-                className={style.closeButton}
-                onClick={() => {
-                  setOpen(false)
-                  
-                }}
-              >Close</button>
+             
             </div>
           </Backdrop>
 
