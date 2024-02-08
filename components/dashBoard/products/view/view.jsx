@@ -83,7 +83,7 @@ export default function View(props) {
             </Item>
             <Item>
               <h5>category</h5>
-              <p>{product && product.categoryList.join(', ')}</p>
+              <p>{product && product.categoryList}</p>
             </Item>
           </Grid>
 

@@ -47,11 +47,11 @@ export default function Products(props) {
 
                         <td className={style.description}>{product.description}</td>
                         <td>R {product.price.toFixed(2)}</td>
-                        <td>{product.date}</td>
+                        <td>{product.createdAt}</td>
                         <td>{product.stock}</td>
                         <td>
                           <Link className={style.view}
-                            href={`/dashboard/products/view?product=${product.name}`}
+                            href={`/dashboard/products/view?product=${product._id}`}
                           >view</Link>
                           <button className={style.delete}>delete</button>
                         </td>
