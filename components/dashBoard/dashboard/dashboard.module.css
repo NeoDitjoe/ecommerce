@@ -21,3 +21,28 @@
 .table{
   width: 100%;
 }
+
+.priceAction{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  white-space: nowrap;
+  margin: 10px;
+}
+
+.priceAction div:nth-child(2){
+  text-align: end;
+}
+
+.priceTitle,
+.priceAction div:nth-child(2) p:nth-child(2){
+  color: gray;
+}
+
+.priceUp{
+  color: green;
+}
+
+.priceDown {
+  color: crimson;
+}

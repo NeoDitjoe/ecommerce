@@ -14,22 +14,55 @@ export default function Dashboard() {
 
           <Grid xs={12} md={3} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
-              one
+              <p className={style.priceTitle}>Total sells</p>
+
+              <div className={style.priceAction}>
+                <div>
+                  <h3>R {'12 072.59'}</h3>
+                </div>
+
+                <div>
+                  <p className={style.priceUp}>18.9%</p>
+                  <p>compared to Jan 2024</p>
+                </div>
+              </div>
             </Item>
           </Grid>
 
           <Grid xs={12} md={3} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
-              two
-            </Item>
+              <p className={style.priceTitle}>Average order value</p>
 
+              <div className={style.priceAction}>
+                <div>
+                  <h3>R {'1364.90'}</h3>
+                </div>
+
+                <div>
+                  <p className={style.priceDown}>28.9%</p>
+                  <p>compared to Jan 2024</p>
+                </div>
+              </div>
+            </Item>
           </Grid>
 
           <Grid xs={12} md={3} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
-              three
+              <p className={style.priceTitle}>Total orders</p>
+
+              <div className={style.priceAction}>
+                <div>
+                  <h3>R {'386'}</h3>
+                </div>
+
+                <div>
+                  <p className={style.priceDown}>24.0%</p>
+                  <p >compared to Jan 2024</p>
+                </div>
+              </div>
             </Item>
           </Grid>
+
 
           <Grid xs={12} md={9} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
@@ -50,14 +83,14 @@ export default function Dashboard() {
                     dummyUsers.map((user, index) => (
                       <tr key={index}>
                         <td>
-                          <Image 
+                          <Image
                             src={user.image}
                             className={style.img}
                             alt={user.email}
                             width={200}
                             height={200}
                           />
-                          
+
                         </td>
                         <td>{user.name}</td>
                         <td>{user.status}</td>
@@ -67,7 +100,7 @@ export default function Dashboard() {
                       </tr>
                     ))
                   }
-                
+
                 </tbody>
               </table>
             </Item>
