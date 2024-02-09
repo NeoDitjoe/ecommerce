@@ -23,7 +23,8 @@ export const DummyProducts = [
     stock: 12,
     qty:1,
     user: 'ditjoeneo03@gmail.com',
-    categoryList: ['shirts', 'skipper', 'shortsleeve', 'white']
+    categoryList: ['shirts', 'skipper', 'shortsleeve', 'white'],
+    _id: 'uysabhuhbh'
   },
   {
     name: 'Vintage Nike Jacket',
@@ -40,6 +41,8 @@ export const DummyProducts = [
     stock: 2,
     qty:1,
     categoryList: ['nike', 'jackets', 'winter', 'white']
+    ,
+    _id: 'uysabhuhxxxxbh'
   },
   {
     name: 'Rockstar white boots',
@@ -56,6 +59,8 @@ export const DummyProducts = [
     stock: 4,
     qty:1,
     categoryList: ['boots', 'tekkies', 'white']
+    ,
+    _id: 'uysabhuhbhkxxpowx'
   },
   {
     name: 'Mucho Jeans',
@@ -71,7 +76,9 @@ export const DummyProducts = [
     banner: '',
     stock: 0,
     qty:1,
-    categoryList: ['denim', 'blue', 'rockstar', 'jeans', 'long', 'pants']
+    categoryList: ['denim', 'blue', 'rockstar', 'jeans', 'long', 'pants'],
+    _id: 'uysabhuhbhlajhiwhwqohq'
+    
   },
   {
     name: 'Goldwang Jacket',
@@ -87,7 +94,8 @@ export const DummyProducts = [
     banner: '',
     stock: 33,
     qty:1,
-    categoryList:['jackects', 'male', 'green', 'winter']
+    categoryList:['jackects', 'male', 'green', 'winter'],
+    _id: 'uysabhswsswswwswuhbh'
   },
   {
     name: 'belt glasses',
@@ -103,7 +111,8 @@ export const DummyProducts = [
     banner: '',
     stock: 5,
     qty:1,
-    categoryList:['Accessories', 'male', 'female', 'summer']
+    categoryList:['Accessories', 'male', 'female', 'summer'],
+    _id: 'uysabhuhsjsjbguwgwybh'
   },
   {
     name: 'Timberland Boots',
@@ -119,7 +128,8 @@ export const DummyProducts = [
     banner: '',
     stock: 20,
     qty:1,
-    categoryList:['shoes', 'boots', 'male', 'brown', 'winter']
+    categoryList:['shoes', 'boots', 'male', 'brown', 'winter'],
+    _id: 'uysabsjshuhbswowiksksh'
   },
 ]
 

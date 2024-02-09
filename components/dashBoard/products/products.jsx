@@ -4,10 +4,16 @@ import Grid from '@mui/material/Unstable_Grid2';
 import style from './products.module.css'
 import Image from "next/image";
 import Link from "next/link";
+import removeItem from "@/lib/database/removeItem";
 
 export default function Products(props) {
 
   const { products } = props
+ 
+  const removeHandler = async function (productName) {
+
+    await removeItem(`/api/dashboard/removeProduct?name=${productName}`)
+  }
 
   return (
     <div>
@@ -53,7 +59,10 @@ export default function Products(props) {
                           <Link className={style.view}
                             href={`/dashboard/products/view?product=${product._id}`}
                           >view</Link>
-                          <button className={style.delete}>delete</button>
+                          <button
+                            className={style.delete}
+                            onClick={() => removeHandler(product.name)}
+                          >delete</button>
                         </td>
                       </tr>
                     ))
