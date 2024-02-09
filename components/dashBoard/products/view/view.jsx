@@ -6,11 +6,14 @@ import Image from "next/image";
 import Backdrop from '@mui/material/Backdrop';
 import { useRef, useState } from "react";
 import Form from "../form/form";
+import addItem from "@/lib/database/addItems";
+import { useRouter } from "next/router";
 
 export default function View(props) {
 
   const { product } = props
   const [open, setOpen] = useState(false)
+  const router = useRouter()
 
   const nameRef = useRef()
   const priceRef = useRef()
@@ -25,10 +28,40 @@ export default function View(props) {
   const editForm = function () {
     nameRef.current.value = product.name
     priceRef.current.value = product && product.price
-    categoryRef.current.value= product.category
-    categoriesListRef.current.value= product.categoriesList
-    descriptionRef.current.value= product.description
-    stockRef.current.value= product.stock
+    categoryRef.current.value = product.category
+    categoriesListRef.current.value = product.categoriesList
+    descriptionRef.current.value = product.description
+    stockRef.current.value = product.stock
+    brandRef.current.value = product.brand
+  }
+
+  const updateHandler = async function () {
+    const name = nameRef.current.value
+    const price = priceRef.current.value
+    const category = categoryRef.current.value
+    const file = fileRef.current.value
+    const image = imageRef.current.value
+    const categoryList = categoriesListRef.current.value
+    const description = descriptionRef.current.value
+    const stock = stockRef.current.value
+    const brand = brandRef.current.value
+
+    const product = {
+      name,
+      price: Number(price),
+      category,
+      file,
+      image,
+      categoryList: categoryList.split(' '),
+      description,
+      stock,
+      brand,
+    }
+
+    console.log(product)
+
+    await addItem('/api/dashboard/editProduct', {product})
+
   }
 
   return (
@@ -100,7 +133,7 @@ export default function View(props) {
                 onClick={() => {
                   setOpen(true)
                   editForm()
-              }}
+                }}
                 className={style.button}
               >Edit Product</button>
             </Item>
@@ -112,15 +145,15 @@ export default function View(props) {
               zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
             open={open}
-            
+
           >
             <div className={style.form}>
 
-            <button
+              <button
                 className={style.closeButton}
                 onClick={() => {
                   setOpen(false)
-                  
+
                 }}
               >Close</button>
               <Form
@@ -133,9 +166,9 @@ export default function View(props) {
                 categoriesListRef={categoriesListRef}
                 descriptionRef={descriptionRef}
                 stockRef={stockRef}
-                // add={/}
+                add={updateHandler}
               />
-             
+
             </div>
           </Backdrop>
 
