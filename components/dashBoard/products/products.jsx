@@ -42,7 +42,7 @@ export default function Products(props) {
                       <tr key={index}>
                         <td className={style.imgAndName}>
                           <Image
-                            src={product.image}
+                            src={product.image || product.imgFile}
                             className={style.img}
                             alt={product.email}
                             width={200}
