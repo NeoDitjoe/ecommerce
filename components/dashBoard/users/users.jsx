@@ -8,6 +8,7 @@ import profile from '../../../public/profile.png'
 export default function Users(props) {
 
   const { users } = props
+
   return (
     <div>
       <Box sx={{ flexGrow: 1 }}>
@@ -28,25 +29,34 @@ export default function Users(props) {
                 </thead>
                 <tbody>
                   {
-                    users && users.map((user, index) => (
-                      <tr key={index}>
-                        <td className={style.imgAndName}>
-                          <Image
-                            src={user.image ? user.image : profile }
-                            className={style.img}
-                            alt={user.email}
-                            width={200}
-                            height={200}
-                          />
-                          <p>{user.username}</p>
-                        </td>
+                    users && users.map((user, index) => {
+                      const date = new Date(user.createdAt)
+                      const day = date.getDate().toString().padStart(2, 0)
+                      const month = date.toString().split(' ')[1]
+                      const year = date.getFullYear()
+                    
+                      const userJoinedDate = day + ' ' + month + ' ' + year
 
-                        <td>{user.email}</td>
-                        <td>{user.createdAt}</td>
-                        <td>{user.role ? user.role : 'user'}</td>
-                        <td>active</td>
-                      </tr>
-                    ))
+                      return (
+                        <tr key={index}>
+                          <td className={style.imgAndName}>
+                            <Image
+                              src={user.image ? user.image : profile}
+                              className={style.img}
+                              alt={user.email}
+                              width={200}
+                              height={200}
+                            />
+                            <p>{user.username}</p>
+                          </td>
+
+                          <td>{user.email}</td>
+                          <td>{userJoinedDate}</td>
+                          <td>{user.role ? user.role : 'user'}</td>
+                          <td>active</td>
+                        </tr>
+                      )
+                    })
                   }
 
                 </tbody>
