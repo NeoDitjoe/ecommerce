@@ -8,18 +8,21 @@ import { useRef, useState } from "react";
 import Form from "../form/form";
 import addItem from "@/lib/database/addItems";
 import { useRouter } from "next/router";
+import StateContext from "@/lib/context";
+import LoadingBackdrop from "@/components/backdrop/loading";
 
 export default function View(props) {
 
   const { product } = props
-  const [open, setOpen] = useState(false)
+  const [openForm, setOpenForm] = useState(false)
+  const { setOpen } = StateContext()
+  const [imgFile, setImaFile] = useState(null)
   const router = useRouter()
 
   const nameRef = useRef()
   const priceRef = useRef()
   const categoryRef = useRef()
   const brandRef = useRef()
-  const fileRef = useRef()
   const imageRef = useRef()
   const categoriesListRef = useRef()
   const descriptionRef = useRef()
@@ -39,7 +42,6 @@ export default function View(props) {
     const name = nameRef.current.value
     const price = priceRef.current.value
     const category = categoryRef.current.value
-    const file = fileRef.current.value
     const image = imageRef.current.value
     const categoryList = categoriesListRef.current.value
     const description = descriptionRef.current.value
@@ -50,7 +52,7 @@ export default function View(props) {
       name,
       price: Number(price),
       category,
-      file,
+      imgFile,
       image,
       categoryList: categoryList.split(' '),
       description,
@@ -58,10 +60,29 @@ export default function View(props) {
       brand,
     }
 
-    console.log(product)
+    try {
+      setOpen(true)
+      const response = await addItem('/api/dashboard/editProduct', {product})
+      if(response.message == 'success'){
+        setOpen(false)
+      }
+    } catch (error) {
+      alert(error)
+      setOpen(false)
+    }
 
-    await addItem('/api/dashboard/editProduct', {product})
+  }
 
+  function createImgLink(e) {
+
+    var reader = new FileReader();
+    reader.readAsDataURL(e.target.files[0]);
+    reader.onload = () => {
+      setImaFile(reader.result)
+    }
+    reader.onerror = error => {
+      console.log('Error: ', error)
+    }
   }
 
   return (
@@ -77,6 +98,7 @@ export default function View(props) {
                   width={300}
                   height={300}
                   className={style.img}
+                  alt={product && product.name}
                 />
               </div>
             </Item>
@@ -131,7 +153,7 @@ export default function View(props) {
             <Item>
               <button
                 onClick={() => {
-                  setOpen(true)
+                  setOpenForm(true)
                   editForm()
                 }}
                 className={style.button}
@@ -144,7 +166,7 @@ export default function View(props) {
               color: 'white',
               zIndex: (theme) => theme.zIndex.drawer + 1,
             }}
-            open={open}
+            open={openForm}
 
           >
             <div className={style.form}>
@@ -152,7 +174,7 @@ export default function View(props) {
               <button
                 className={style.closeButton}
                 onClick={() => {
-                  setOpen(false)
+                  setOpenForm(false)
 
                 }}
               >Close</button>
@@ -161,7 +183,7 @@ export default function View(props) {
                 priceRef={priceRef}
                 categoryRef={categoryRef}
                 brandRef={brandRef}
-                fileRef={fileRef}
+                createImgLink={createImgLink}
                 imageRef={imageRef}
                 categoriesListRef={categoriesListRef}
                 descriptionRef={descriptionRef}
@@ -171,6 +193,8 @@ export default function View(props) {
 
             </div>
           </Backdrop>
+
+          <LoadingBackdrop />
 
         </Grid>
       </Box>
