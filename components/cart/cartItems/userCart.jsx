@@ -5,16 +5,41 @@ import { useSession } from "next-auth/react"
 import StateContext from "@/lib/context"
 import { useState } from "react"
 import addItem from "@/lib/database/addItems"
+import CircularProgress from '@mui/material/CircularProgress';
 
 export default function CartItems(props) {
 
-  const { theme } = StateContext()
-  const [qty, setQty] = useState(null)
   const { products } = props
+
+  const { theme } = StateContext()
   const { data: session } = useSession()
+
+  const [ decrementLoading, setDecrementLoading ] = useState(false)
+
   const userEmail = session && session.user.email[0]
   const quantity = []
   const totalCosts = []
+
+  async function decrement(product){
+
+    try {
+      setDecrementLoading(true)
+      const response = await addItem('/api/cart/updateCart', { qty: Number(product.qty) - 1, name: product.name, user: userEmail })
+      
+      if(response.message == 'Success'){
+
+        setDecrementLoading(false)
+      }
+      
+    } catch (error) {
+      setDecrementLoading(false)
+      alert(error)
+    }
+
+    if (Number(product.qty) < 2) {
+      await removeItem(userEmail, product.name)
+    }
+  }
 
   return (
     <div className={theme ? style.containerB : style.container}>
@@ -44,13 +69,8 @@ export default function CartItems(props) {
 
               <div className={theme ? style.qtyB : style.qty}>
                 <button
-                  onClick={async () => {
-                    await addItem('/api/cart/updateCart', { qty: Number(product.qty) - 1, name: product.name, user: userEmail })
-                    if (Number(product.qty) < 2) {
-                      await removeItem(userEmail, product.name)
-                    }
-                  }}
-                >-</button>
+                  onClick={() => decrement(product)}
+                >{decrementLoading ? <CircularProgress/> : '-'}</button>
                 <div>{product.qty}</div>
                 <button
                   onClick={async () => await addItem('/api/cart/updateCart', { qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
