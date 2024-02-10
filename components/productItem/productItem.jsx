@@ -29,11 +29,11 @@ export default function Structure(props) {
 
       <div>
         <Link href={`/product/${_id}`}>
-          <h3>{name}</h3>
+          <h4>{name}</h4>
         </Link>
         <p>{brand}</p>
         <div>
-          <h2>R{price}</h2>
+          <h3>R{price}</h3>
         </div>
       </div>
     </div>
