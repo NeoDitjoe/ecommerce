@@ -62,11 +62,6 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
   },
 }));
 
-const SmallAvatar = styled(Avatar)(({ theme }) => ({
-  width: 22,
-  height: 22,
-  border: `2px solid ${theme.palette.background.paper}`,
-}));
 
 export default function Header() {
 
@@ -86,6 +81,7 @@ export default function Header() {
   };
 
   const [qtyData, setQtyData] = useState([])
+  const [ profileImg, setProfileImg ] = useState(null)
 
   useEffect(() => {
     fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
@@ -97,6 +93,12 @@ export default function Header() {
   qtyData && qtyData.map((items) => (
     qty.push(items.qty)
   ))
+
+  useEffect(() => {
+    fetch(`/api/auth/getProfileImg?userEmail=${user && user[0]}`)
+      .then(res => res.json())
+      .then(data => setProfileImg(data.img[0] && data.img[0].image))
+  })
 
   return (
     <header>
@@ -146,7 +148,7 @@ export default function Header() {
                       <p className={style.cartItemsNo}>{qty.reduce((a, b) => a + b, 0)}</p>
                     }
                   >
-                    <Avatar alt={user[1]} src={''} />
+                    <Avatar alt={user[1]} src={profileImg} />
                   </Badge>
                 </Tooltip>
                 <Menu
