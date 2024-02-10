@@ -98,7 +98,7 @@ export default function Header() {
     fetch(`/api/auth/getProfileImg?userEmail=${user && user[0]}`)
       .then(res => res.json())
       .then(data => setProfileImg(data.img[0] && data.img[0].image))
-  })
+  }, [profileImg])
 
   return (
     <header>
