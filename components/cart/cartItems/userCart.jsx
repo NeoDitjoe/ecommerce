@@ -29,7 +29,7 @@ export default function CartItems(props) {
 
                 <div className={style.imgDiv}>
                   <Image
-                    src={product.image}
+                    src={product.image || product.imgFile}
                     alt={product.name}
                     width={200}
                     height={200}
