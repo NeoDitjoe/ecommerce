@@ -10,7 +10,7 @@ export default function Form(props) {
     priceRef,
     categoryRef, 
     brandRef, 
-    fileRef, 
+    createImgLink, 
     imageRef, 
     categoriesListRef, 
     descriptionRef, 
@@ -49,7 +49,7 @@ export default function Form(props) {
 
           <Grid xs={12} md={6} s={2} >
             <Item>
-              <input style={{ cursor: 'pointer' }} type="file" placeholder="Price" ref={fileRef} />
+              <input style={{ cursor: 'pointer' }} type="file" placeholder="Price" onChange={createImgLink} />
             </Item>
           </Grid>
 
