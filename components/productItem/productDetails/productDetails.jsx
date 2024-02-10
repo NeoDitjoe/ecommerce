@@ -21,7 +21,7 @@ export default function ProductDetails(props) {
 
   const {
     image, name, rating, reviewsCount,
-    description, brand, stock, price
+    description, brand, stock, price, imgFile
   } = props
 
   return (
@@ -32,7 +32,7 @@ export default function ProductDetails(props) {
             <Item>
               <div>
                 <Image
-                  src={image}
+                  src={image || imgFile}
                   alt={name}
                   width={600}
                   height={600}
