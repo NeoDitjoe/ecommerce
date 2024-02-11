@@ -15,6 +15,7 @@ export default function CartItems(props) {
   const { data: session } = useSession()
 
   const [ decrementLoading, setDecrementLoading ] = useState(false)
+  const [ incrementLoading, setIncrementLoading ] = useState(false)
 
   const userEmail = session && session.user.email[0]
   const quantity = []
@@ -38,6 +39,23 @@ export default function CartItems(props) {
 
     if (Number(product.qty) < 2) {
       await removeItem(userEmail, product.name)
+    }
+  }
+
+  async function increment(product){
+
+    try {
+      setIncrementLoading(true)
+      const response = await addItem('/api/cart/updateCart', { qty: Number(product.qty) + 1, name: product.name, user: userEmail })
+      
+      if(response.message == 'Success'){
+
+        setIncrementLoading(false)
+      }
+      
+    } catch (error) {
+      setIncrementLoading(false)
+      alert(error)
     }
   }
 
@@ -73,8 +91,8 @@ export default function CartItems(props) {
                 >{decrementLoading ? <CircularProgress/> : '-'}</button>
                 <div>{product.qty}</div>
                 <button
-                  onClick={async () => await addItem('/api/cart/updateCart', { qty: Number(product.qty) + 1, name: product.name, user: userEmail })}
-                >+</button>
+                  onClick={() => increment(product)}
+                >{incrementLoading ? <CircularProgress/> : '+'}</button>
               </div>
 
               <div className={style.price}>
