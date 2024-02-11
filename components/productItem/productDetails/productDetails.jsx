@@ -30,14 +30,14 @@ export default function ProductDetails(props) {
         <Grid container spacing={1}>
           <Grid xs={12} md={6} s={2} >
             <Item style={{background: 'rgb(234, 236, 234)' }}>
-              <div>
+              <div className={style.img}>
                 <Image
                   src={image || imgFile}
                   alt={name}
                   width={600}
                   height={600}
                   sizes='100vw'
-                  className={style.img}
+                  
                 />
               </div>
             </Item>
