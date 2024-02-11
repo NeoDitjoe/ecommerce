@@ -6,7 +6,7 @@ import Image from 'next/image';
 import { Item } from '../muiStyle';
 import { BarChart, Bar, Tooltip, LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
 import { useState } from 'react';
-const data = [{ name: 'Nov', uv: 100, pv: 2400, amt: 2400 }, { name: 'Dec', uv: 360, pv: 2400, amt: 2400 }, { name: 'Jan', uv: 200, pv: 2400, amt: 2400 }, { name: 'Feb', uv: 220, pv: 2400, amt: 2400 }];
+const data = [{ name: 'Nov', uv: 100, pv: 1400, amt: 2400 }, { name: 'Dec', uv: 360, pv: 1000, amt: 2400 }, { name: 'Jan', uv: 200, pv: 1200, amt: 2400 }, { name: 'Feb', uv: 220, pv: 1600, amt: 2400 }];
 
 export default function Dashboard() {
 
@@ -128,15 +128,19 @@ export default function Dashboard() {
                   <Tooltip />
                   <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
                   <Bar dataKey="uv" fill="#8884d8" barSize={30} />
+                  <Bar dataKey="pv" fill="#8884d8" barSize={30} />
+                  <Tooltip />
                 </BarChart>
 
                 :
 
                 <LineChart width={600} height={300} data={data}>
                   <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                  <Line type="monotone" dataKey="pv" stroke="#8884d8" />
                   <CartesianGrid stroke="#ccc" />
                   <XAxis dataKey="name" />
                   <YAxis />
+                  <Tooltip />
                 </LineChart>
               }
             </Item>
