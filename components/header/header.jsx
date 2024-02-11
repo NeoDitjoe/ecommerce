@@ -81,7 +81,7 @@ export default function Header() {
   };
 
   const [qtyData, setQtyData] = useState([])
-  // const [ profileImg, setProfileImg ] = useState(null)
+  const [ profileImg, setProfileImg ] = useState(null)
 
   useEffect(() => {
     fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
@@ -94,11 +94,11 @@ export default function Header() {
     qty.push(items.qty)
   ))
 
-  // useEffect(() => {
-  //   fetch(`/api/auth/getProfileImg?userEmail=${user && user[0]}`)
-  //     .then(res => res.json())
-  //     .then(data => setProfileImg(data.img[0] ? data.img[0].image : ''))
-  // }, [profileImg])
+  useEffect(() => {
+    fetch(`/api/auth/getProfileImg?userEmail=${user && user[0]}`)
+      .then(res => res.json())
+      .then(data => setProfileImg(data.img[0] ? data.img[0].image : ''))
+  }, [profileImg])
 
   return (
     <header>
@@ -148,7 +148,7 @@ export default function Header() {
                       <p className={style.cartItemsNo}>{qty.reduce((a, b) => a + b, 0)}</p>
                     }
                   >
-                    <Avatar alt={user[1]} src={''/* profileImg */} />
+                    <Avatar alt={user[1]} src={profileImg} />
                   </Badge>
                 </Tooltip>
                 <Menu
