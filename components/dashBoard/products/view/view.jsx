@@ -94,7 +94,7 @@ export default function View(props) {
             <Item>
               <div className={style.imgDiv}>
                 <Image
-                  src={product && product.image}
+                  src={product && product.image || product.imgFile}
                   width={300}
                   height={300}
                   className={style.img}
@@ -138,7 +138,7 @@ export default function View(props) {
             </Item>
             <Item>
               <h5>category</h5>
-              <p>{product && product.categoryList}</p>
+              <p>{product && product.category}</p>
             </Item>
           </Grid>
 
