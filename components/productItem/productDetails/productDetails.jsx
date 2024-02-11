@@ -29,7 +29,7 @@ export default function ProductDetails(props) {
       <Box sx={{ flexGrow: 1 }}>
         <Grid container spacing={1}>
           <Grid xs={12} md={6} s={2} >
-            <Item>
+            <Item style={{background: 'rgb(234, 236, 234)' }}>
               <div>
                 <Image
                   src={image || imgFile}

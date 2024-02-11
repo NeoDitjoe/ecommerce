@@ -29,7 +29,7 @@ export default function Structure(props) {
 
       <div>
         <Link href={`/product/${_id}`}>
-          <h4>{name}</h4>
+          <h4 className={style.name}>{name.split('').length > 22 ? name.substring(0, 22) + '...' : name}</h4>
         </Link>
         <p>{brand}</p>
         <div>
