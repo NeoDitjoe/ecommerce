@@ -7,9 +7,9 @@ export default function products(props) {
   const { products } = props
   return (
     <div>
-      {/* <DashboardWrapper
+      <DashboardWrapper
        children= {<Products products= {products} />}
-      /> */}
+      />
     </div>
   )
 }
