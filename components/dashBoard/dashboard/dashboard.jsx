@@ -4,10 +4,13 @@ import { dummyUsers } from '@/lib/dummyData';
 import style from './dashboard.module.css'
 import Image from 'next/image';
 import { Item } from '../muiStyle';
-import { LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
-const data = [{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }, { name: 'Page A', uv: 400, pv: 2400, amt: 2400 },{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 },{ name: 'Page A', uv: 400, pv: 2400, amt: 2400 }];
+import { BarChart, Bar, Tooltip, LineChart, Line, CartesianGrid, XAxis, YAxis } from 'recharts';
+import { useState } from 'react';
+const data = [{ name: 'Nov', uv: 100, pv: 2400, amt: 2400 }, { name: 'Dec', uv: 360, pv: 2400, amt: 2400 }, { name: 'Jan', uv: 200, pv: 2400, amt: 2400 }, { name: 'Feb', uv: 220, pv: 2400, amt: 2400 }];
 
 export default function Dashboard() {
+
+  const [chart, setChart] = useState(false)
 
   return (
     <div>
@@ -111,14 +114,33 @@ export default function Dashboard() {
           <Grid xs={12} md={9} s={2} >
             <Item style={{ background: 'rgb(27, 27, 42)' }}>
 
-              <LineChart width={600} height={300} data={data}>
-                <Line type="monotone" dataKey="uv" stroke="#8884d8" />
-                <CartesianGrid stroke="#ccc" />
-                <XAxis dataKey="name" />
-                <YAxis />
-              </LineChart>
+              <button
+                onClick={() => setChart(!chart)}
+                className={style.button}
+              >{chart ? 'Line chart' : 'Bar chart'}</button>
+
+              {chart
+                ?
+
+                <BarChart width={600} height={300} data={data}>
+                  <XAxis dataKey="name" stroke="#8884d8" />
+                  <YAxis />
+                  <Tooltip />
+                  <CartesianGrid stroke="#ccc" strokeDasharray="5 5" />
+                  <Bar dataKey="uv" fill="#8884d8" barSize={30} />
+                </BarChart>
+
+                :
+
+                <LineChart width={600} height={300} data={data}>
+                  <Line type="monotone" dataKey="uv" stroke="#8884d8" />
+                  <CartesianGrid stroke="#ccc" />
+                  <XAxis dataKey="name" />
+                  <YAxis />
+                </LineChart>
+              }
             </Item>
-            
+
           </Grid>
 
         </Grid>
