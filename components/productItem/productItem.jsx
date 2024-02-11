@@ -12,7 +12,7 @@ export default function Structure(props) {
 
   const { theme } = StateContext()
 
-  const { imgFile, image, name, slug, brand, price, _id } = props.product
+  const { imgFile, image, name, brand, price, _id } = props.product
   return (
     <div className={theme ? style.mainB : style.main}>
       <figure>
