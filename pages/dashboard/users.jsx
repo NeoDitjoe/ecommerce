@@ -1,4 +1,4 @@
-// import Users from "@/components/dashBoard/users/users";
+import Users from "@/components/dashBoard/users/users";
 import Wrapper from "@/components/dashBoard/wrapper/wrapper";
 import getUsers from "@/lib/database/dashboard/getUsers";
 
