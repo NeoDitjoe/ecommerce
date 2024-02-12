@@ -1,14 +1,13 @@
-// import Dashboard from "@/components/dashBoard/dashboard/dashboard";
-// import Wrapper from "@/components/dashBoard/wrapper/wrapper";
+import Dashboard from "@/components/dashBoard/dashboard/dashboard";
+import Wrapper from "@/components/dashBoard/wrapper/wrapper";
 
 export default function dashboard(){
 
   return (
     <div>
-      {/* <Wrapper 
+      <Wrapper 
         children={<Dashboard/>}
-      /> */}
-      <p>index</p>
+      />
     </div>
   )
 }
