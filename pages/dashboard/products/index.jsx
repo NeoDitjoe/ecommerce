@@ -1,5 +1,5 @@
-import Products from "@/components/dashBoard/products/products";
-import DashboardWrapper from "@/components/dashBoard/wrapper/wrapper";
+// import Products from "@/components/dashBoard/products/products";
+// import DashboardWrapper from "@/components/dashBoard/wrapper/wrapper";
 // import getItem from "@/lib/database/getItems";
 
 export default function products(props) {

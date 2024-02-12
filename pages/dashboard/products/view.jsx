@@ -1,5 +1,5 @@
-import View from "@/components/dashBoard/products/view/view";
-import DashboardWrapper from "@/components/dashBoard/wrapper/wrapper";
+// import View from "@/components/dashBoard/products/view/view";
+// import DashboardWrapper from "@/components/dashBoard/wrapper/wrapper";
 // import getItem from "@/lib/database/getItems";
 import { useRouter } from "next/router";
 
