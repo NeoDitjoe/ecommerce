@@ -1,0 +1,11 @@
+.main {
+  color: black;
+}
+
+.view{
+  color: black;
+  font-size: 80px;
+  text-align: center;
+
+  transform: translateY(50px);
+}
