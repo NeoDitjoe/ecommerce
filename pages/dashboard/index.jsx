@@ -5,9 +5,10 @@ export default function dashboard(){
 
   return (
     <div>
-      <Wrapper 
+      {/* <Wrapper 
         children={<Dashboard/>}
-      />
+      /> */}
+      <p>index</p>
     </div>
   )
 }
