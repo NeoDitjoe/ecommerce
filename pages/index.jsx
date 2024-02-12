@@ -12,7 +12,6 @@ export default function Home(props) {
       <p>Viewed as customer</p>
       Go to <Link href={'/dashboard'}>Dashboard</Link>
       <div className='mainIndexBackground'></div>
-      {/* <h2 className='lastestProducts'>Latest Products</h2> */}
       <Homepage
         products={products}
       />

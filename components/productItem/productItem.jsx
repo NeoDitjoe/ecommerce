@@ -56,7 +56,7 @@ export function Items({products}) {
       <Grid container spacing={{ xs: 2, md: 2 }} columns={{ xs: 12, sm: 12, md: 12 }}>
         {products && products.map((product, index) => (
           <Grid xs={6} sm={3} md={2} key={index}>
-            <Item style={{ background: theme? '#1A2027' : 'rgb(220, 218, 218)'}}>
+            <Item style={{ background: theme? '#1A2027' : ''}}>
               <Structure
                 product={product}
               />

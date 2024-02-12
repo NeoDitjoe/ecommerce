@@ -35,6 +35,7 @@ export default function Homepage(props) {
           <Grid xs={12} md={12} s={2} >
 
             <Item>
+              <h2 className='lastestProducts'>Latest Products</h2>
               <Items
                 products={products}
               />
