@@ -18,7 +18,7 @@ export default function Structure(props) {
       <figure>
         <Link href={`/product/${_id}`}>
           <Image
-            src={image || imgFile}
+            src={imgFile}
             alt={name}
             width={300}
             height={300}
