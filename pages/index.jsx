@@ -1,6 +1,6 @@
 import Homepage from '@/components/homePage/home';
-import { Items } from '@/components/productItem/productItem';
-import getItem from '@/lib/database/getItems';
+// import { Items } from '@/components/productItem/productItem';
+// import getItem from '@/lib/database/getItems';
 import Link from 'next/link';
 
 export default function Home(props) {
@@ -12,19 +12,19 @@ export default function Home(props) {
       <p>Viewed as customer</p>
       Go to <Link href={'/dashboard'}>Dashboard</Link>
       <div className='mainIndexBackground'></div>
-      <Homepage
+      {/* <Homepage
         products={products}
-      />
+      /> */}
     </main>
   )
 }
 
-export async function getServerSideProps() {
-  const products = await getItem()
+// export async function getServerSideProps() {
+//   const products = await getItem()
 
-  return {
-    props: {
-      products
-    }
-  }
-}
+//   return {
+//     props: {
+//       products
+//     }
+//   }
+// }
