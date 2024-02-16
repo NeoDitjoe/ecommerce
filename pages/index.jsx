@@ -22,7 +22,7 @@ export default function Home(props) {
 
   console.log(products)
 
-  setOpen(!products)
+  // setOpen(!products)
 
   return (
     <main style={{ width: '99%' }}>
