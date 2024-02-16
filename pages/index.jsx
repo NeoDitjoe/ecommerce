@@ -1,6 +1,7 @@
 import Homepage from '@/components/homePage/home';
 import { Items } from '@/components/productItem/productItem';
-import getItem from '@/lib/database/getItems';
+import getProducts from '@/lib/database/getProducts';
+// import getItem from '@/lib/database/getItems';
 import Link from 'next/link';
 
 export default function Home(props) {
@@ -20,7 +21,8 @@ export default function Home(props) {
 }
 
 export async function getServerSideProps() {
-  const products = await getItem()
+  // const products = await getItem()
+  const products = await getProducts()
 
   return {
     props: {
