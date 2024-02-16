@@ -3,10 +3,14 @@ import Homepage from '@/components/homePage/home';
 // import getItem from '@/lib/database/getItems';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
+import { CircularProgress } from '@mui/material';
+import StateContext from '@/lib/context';
+import LoadingBackdrop from '@/components/backdrop/loading';
 
 export default function Home(props) {
 
   // const { products } = props
+  const { setOpen } = StateContext()
 
   const [ products, setProducts ] = useState(null)
 
@@ -18,6 +22,8 @@ export default function Home(props) {
 
   console.log(products)
 
+  setOpen(!products)
+
   return (
     <main style={{ width: '99%' }}>
       <p>Viewed as customer</p>
@@ -26,6 +32,8 @@ export default function Home(props) {
       <Homepage
         products={products}
       />
+
+      <LoadingBackdrop/>
     </main>
   )
 }
