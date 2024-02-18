@@ -15,7 +15,7 @@ export default function cart(props) {
     } catch (error) {
       console.log('error')
     }
-  })
+  }, [cartItems])
 
   return (
     <>
@@ -28,3 +28,5 @@ export default function cart(props) {
 
   )
 }
+
+//mongodb+srv://4store:bQQwLgF3SuAW8XM4@clothingstore.jyzp0oz.mongodb.net/?retryWrites=true&w=majority

@@ -91,7 +91,7 @@ export default function Header() {
     } catch (error) {
       console.log('error')
     }
-  })
+  }, [])
 
   const qty = []
   qtyData && qtyData.map((items) => (
