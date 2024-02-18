@@ -81,12 +81,16 @@ export default function Header() {
   };
 
   const [qtyData, setQtyData] = useState([])
-  const [ profileImg, setProfileImg ] = useState(null)
+  const [profileImg, setProfileImg] = useState(null)
 
   useEffect(() => {
-    fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
-      .then(res => res.json())
-      .then(data => setQtyData(data.results))
+    try {
+      fetch(`/api/cart/getCartItems?user=${user && user[0]}`)
+        .then(res => res.json())
+        .then(data => setQtyData(data.results))
+    } catch (error) {
+      console.log('error')
+    }
   })
 
   const qty = []
