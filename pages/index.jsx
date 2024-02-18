@@ -20,8 +20,6 @@ export default function Home(props) {
       .then(data => setProducts(data.results))
   })
 
-  console.log(products)
-
   // setOpen(!products)
 
   return (

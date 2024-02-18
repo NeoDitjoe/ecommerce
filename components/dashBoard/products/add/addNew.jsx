@@ -70,8 +70,6 @@ export default function AddProduct() {
       alert('failed' + error)
       setOpen(false)
     }
-    console.log(addData)
-
   }
 
   function createImgLink(e) {
