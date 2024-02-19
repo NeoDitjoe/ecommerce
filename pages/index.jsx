@@ -3,7 +3,6 @@ import Homepage from '@/components/homePage/home';
 // import getItem from '@/lib/database/getItems';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
-import { CircularProgress } from '@mui/material';
 import StateContext from '@/lib/context';
 import LoadingBackdrop from '@/components/backdrop/loading';
 

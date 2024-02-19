@@ -4,6 +4,7 @@ import Grid from '@mui/material/Unstable_Grid2';
 import { Item } from "../dashBoard/muiStyle";
 import View from "./view1stRow.jsx/view";
 import style from './home.module.css'
+import { CircularProgress } from "@mui/material";
 
 
 export default function Homepage(props) {
@@ -36,9 +37,13 @@ export default function Homepage(props) {
 
             <Item>
               <h2 className='lastestProducts'>Latest Products</h2>
-              <Items
+              {
+               products
+               ?  <Items
                 products={products}
               />
+              : <CircularProgress />
+              }
 
             </Item>
           </Grid>
